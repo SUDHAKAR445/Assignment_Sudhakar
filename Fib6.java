@@ -32,6 +32,7 @@ class Fib6
 		{
 			System.out.println("Enter the choice : 0 - continue 1- exit ");
 			choice = sc.nextInt();
+
 			switch(choice)
 			{
 				case 0:
