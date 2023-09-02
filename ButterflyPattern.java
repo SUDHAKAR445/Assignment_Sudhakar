@@ -51,7 +51,7 @@ public class ButterflyPattern {
 
         System.out.print("Enter the height of the pattern: ");
         height = in.nextInt();
-        for(rows = 1; rows <= height - 1; rows++) 
+        for(rows = 1; rows <= height; rows++) 
 		{
             for(int i = 1; i <= rows; i++)
                 System.out.print("*");
@@ -66,12 +66,12 @@ public class ButterflyPattern {
         for(rows = height; rows >= 1; rows--) 
 		{
             for(int i = 1; i <= rows; i++)
-                System.out.print("*");
+                System.out.print("-");
             for(int j = 1; j <= 2 * (height - rows); j++)
                 System.out.print(" ");
             System.out.print('\b');
             for(int k = rows; k >= 1; k--)
-                System.out.print("*");
+                System.out.print("-");
             System.out.print('\n');
         }
     }
