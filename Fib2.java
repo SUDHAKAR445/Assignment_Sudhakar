@@ -1,5 +1,4 @@
-import java.util.*;
-class Fib
+class Fib2
 {
 	public static int fibnacci(int number)
 	{
@@ -15,12 +14,6 @@ class Fib
 	}
 	public static void main(String[] args)
 	{
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		System.out.println("Fibnacci Series :");
-		//for(int i=0;i<n;i++)
-		//{
-			System.out.print(fibnacci(n)+" ");
-		//}
+		System.out.print(fibnacci(Integer.parseInt(args[0]))+" ");
 	}
 }
