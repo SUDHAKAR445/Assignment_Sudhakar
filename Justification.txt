@@ -1,0 +1,5 @@
+Why the private class is not accessed by the main program while creating the object meanwhile protected class is accessed by the main method while creating the object?
+
+	The access level of a private modifier is only within the class and it cannot be accessed from outside the class but the access level of the protected modifier is within the package and outside package through child class.
+
+	On that example, Package is not created by manually eventhough the java compiler consider that entire programs are presented in a single package and it satisfied the condition of the protected modifier. So it is accessed by the main method while creating the object.
