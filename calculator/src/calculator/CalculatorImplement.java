@@ -6,33 +6,30 @@ public class CalculatorImplement implements Calculator {
 
 	public BigInteger a = new BigInteger("0");
 	public BigInteger b = new BigInteger("0");
-	@Override
-	public BigInteger add(BigInteger a, BigInteger b) {
-		// TODO Auto-generated method stub
+	
+	
+	public BigInteger add(BigInteger a, BigInteger b) 
+	{
 		return a.add(b);
 	}
 
-	@Override
-	public BigInteger subtract(BigInteger a, BigInteger b) {
-		// TODO Auto-generated method stub
+	public BigInteger subtract(BigInteger a, BigInteger b) 
+	{
 		return a.subtract(b);
 	}
 
-	@Override
-	public BigInteger multiply(BigInteger a, BigInteger b) {
-		// TODO Auto-generated method stub
+	public BigInteger multiply(BigInteger a, BigInteger b) 
+	{
 		return a.multiply(b);
 	}
 
-	@Override
-	public BigInteger division(BigInteger a, BigInteger b) {
-		// TODO Auto-generated method stub
+	public BigInteger division(BigInteger a, BigInteger b) 
+	{
 		return a.divide(b);
 	}
 
-	@Override
-	public BigInteger powerOfTwo(BigInteger a) {
-		// TODO Auto-generated method stub
+	public BigInteger powerOfTwo(BigInteger a) 
+	{
 		return a.multiply(a);
 	}
 
