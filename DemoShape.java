@@ -58,7 +58,7 @@ class Circle extends Shape
 	}
 	public double getArea()
 	{
-		return pi*radius;
+		return pi*radius*radius;
 	}
 }
 class DemoShape
