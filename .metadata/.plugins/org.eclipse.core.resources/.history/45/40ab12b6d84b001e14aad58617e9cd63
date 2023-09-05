@@ -1,7 +1,6 @@
 package calculator;
 
 import java.math.BigInteger;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DemoCalculator {
@@ -27,102 +26,43 @@ public class DemoCalculator {
 				case 1:
 				{
 					System.out.println("Enter value1 : ");
-					try 
-					{
-						a = sc.nextBigInteger();
-					}
-					catch(InputMismatchException e)
-					{
-						System.out.println("InputMismatchException is ocuured");
-					}
+					a = sc.nextBigInteger();
 					System.out.println("Enter value2 : ");
-					try 
-					{
-						b = sc.nextBigInteger();
-					}
-					catch(InputMismatchException e)
-					{
-						System.out.println("InputMismatchException is ocuured");
-					}
+					b = sc.nextBigInteger();
 					System.out.println("Addition value of "+a+" and "+b+" is "+ cal.add(a, b));
 					break;
 				}
 				case 2:
 				{
-					try 
-					{
-						a = sc.nextBigInteger();
-					}
-					catch(InputMismatchException e)
-					{
-						System.out.println("InputMismatchException is ocuured");
-					}
+					System.out.println("Enter value1 : ");
+					a = sc.nextBigInteger();
 					System.out.println("Enter value2 : ");
-					try 
-					{
-						b = sc.nextBigInteger();
-					}
-					catch(InputMismatchException e)
-					{
-						System.out.println("InputMismatchException is ocuured");
-					}
+					b = sc.nextBigInteger();
 					System.out.println("Subtraction value of "+a+" and "+b+" is "+ cal.subtract(a, b));
 					break;
 				}
 				case 3:
 				{
-					try 
-					{
-						a = sc.nextBigInteger();
-					}
-					catch(InputMismatchException e)
-					{
-						System.out.println("InputMismatchException is ocuured");
-					}
+					System.out.println("Enter value1 : ");
+					a = sc.nextBigInteger();
 					System.out.println("Enter value2 : ");
-					try 
-					{
-						b = sc.nextBigInteger();
-					}
-					catch(InputMismatchException e)
-					{
-						System.out.println("InputMismatchException is ocuured");
-					}
+					b = sc.nextBigInteger();
 					System.out.println("Multiplication value of "+a+" and "+b+" is "+ cal.multiply(a, b));
 					break;
 				}
 				case 4:
 				{
-					try 
-					{
-						a = sc.nextBigInteger();
-					}
-					catch(InputMismatchException e)
-					{
-						System.out.println("InputMismatchException is ocuured");
-					}
+					System.out.println("Enter value1 : ");
+					a = sc.nextBigInteger();
 					System.out.println("Enter value2 : ");
-					try 
-					{
-						b = sc.nextBigInteger();
-					}
-					catch(InputMismatchException e)
-					{
-						System.out.println("InputMismatchException is ocuured");
-					}
+					b = sc.nextBigInteger();
 					System.out.println("Division value of "+a+" and "+b+" is "+ cal.division(a, b));
 					break;
 				}
 				case 5:
 				{
-					try 
-					{
-						a = sc.nextBigInteger();
-					}
-					catch(InputMismatchException e)
-					{
-						System.out.println("InputMismatchException is ocuured");
-					}
+					System.out.println("Enter value1 : ");
+					a = sc.nextBigInteger();
 					System.out.println("Power of two value of "+a+" is "+ cal.powerOfTwo(a));
 					break;
 				}
