@@ -1,0 +1,14 @@
+package overloadingAndOverriding;
+public class OverloadingAndOverriding 
+{
+	private static Overloading overloading;
+	private static Overloading overloading1;
+
+	public static void main(String[] args)
+	{
+		overloading = new Overloading();
+		overloading1 = new Overloading(10 , 20);
+		Overloading overloading2 = new Overloading(10f , 20f);
+		OverridingChild child = new OverridingChild();
+	}
+}

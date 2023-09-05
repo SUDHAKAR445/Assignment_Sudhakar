@@ -1,0 +1,8 @@
+package accessModifier2;
+
+protected class Brand {
+	Brand()
+	{
+		System.out.println("BMW");
+	}
+}

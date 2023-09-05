@@ -1,0 +1,8 @@
+package accessModifier2;
+import accessModifier.Car;
+public class Brand extends Car{
+	Brand()
+	{
+		System.out.println("BMW");
+	}
+}

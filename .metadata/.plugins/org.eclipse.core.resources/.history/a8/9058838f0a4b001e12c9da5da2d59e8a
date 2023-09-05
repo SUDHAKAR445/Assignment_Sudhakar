@@ -1,0 +1,8 @@
+package accessModifier;
+
+public class Car {
+	public static void main(String[] args) {
+		Brand brand = new Brand();
+		
+	}
+}
