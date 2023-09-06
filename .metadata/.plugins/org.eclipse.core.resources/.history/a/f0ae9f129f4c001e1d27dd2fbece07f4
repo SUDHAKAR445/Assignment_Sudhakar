@@ -19,7 +19,7 @@ class ExceptionEg
      System.out.println("Operation successful with value: " + value);
  }
 
- public static void main(String[] args) throws Error
+ public static void main(String[] args) 
  {
 	 Scanner sc = new Scanner(System.in);
 	 
@@ -56,7 +56,7 @@ class ExceptionEg
 	 }
 	 catch(StackOverflowError e)
 	 {
-		e.printStackTrace();
+		 System.out.println("Caught StackOverflowError: "+ e);
 	 }
 	 
 	 // User defined exception 
