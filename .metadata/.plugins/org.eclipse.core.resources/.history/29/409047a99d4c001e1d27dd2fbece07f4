@@ -51,12 +51,11 @@ class ExceptionEg
 	 
 	 try 
 	 {
-		 int a = sc.nextInt();
-		 fib(a);
+		 fib(10);
 	 }
 	 catch(StackOverflowError e)
 	 {
-		 System.out.println("Caught StackOverflowError: "+ e.getMessage());
+		 System.out.println("Caught NegativeArraySizeException: "+ e.getMessage());
 	 }
 	 
 	 // User defined exception 

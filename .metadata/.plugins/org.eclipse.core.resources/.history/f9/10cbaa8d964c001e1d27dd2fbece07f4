@@ -22,7 +22,13 @@ class ExceptionEg
  public static void main(String[] args) 
  {
 	 Scanner sc = new Scanner(System.in);
-	 
+	 try {
+         // Attempt to call a non-existent method
+         callNonExistentMethod();
+     } catch (NoSuchMethodError e) {
+         // Handle the NoSuchMethodError
+         System.out.println("Caught NoSuchMethodError: " + e.getMessage());
+     }
 	 
 	 // OutOfMemoryError 
 	 
@@ -51,12 +57,11 @@ class ExceptionEg
 	 
 	 try 
 	 {
-		 int a = sc.nextInt();
-		 fib(a);
+		 fib(10);
 	 }
 	 catch(StackOverflowError e)
 	 {
-		 System.out.println("Caught StackOverflowError: "+ e.getMessage());
+		 System.out.println("Caught stackoverflowerror: "+ e.getMessage());
 	 }
 	 
 	 // User defined exception 

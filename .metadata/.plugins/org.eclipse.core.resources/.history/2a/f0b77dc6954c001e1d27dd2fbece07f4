@@ -51,13 +51,16 @@ class ExceptionEg
 	 
 	 try 
 	 {
-		 int a = sc.nextInt();
-		 fib(a);
+		 fib1(10);
 	 }
-	 catch(StackOverflowError e)
+	 catch(Error e)
 	 {
-		 System.out.println("Caught StackOverflowError: "+ e.getMessage());
+		 System.out.println("+++++");
 	 }
+//	 catch(StackOverflowError e)
+//	 {
+//		 System.out.println("Caught stackoverflowerror: "+ e.getMessage());
+//	 }
 	 
 	 // User defined exception 
      try
