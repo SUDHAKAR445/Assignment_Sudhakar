@@ -16,7 +16,7 @@ public class Player extends Person
 	       while(getNum){
 
 	           try{
-	               System.out.println("Would you like to: 1) Hit or 2) Stand");
+	               System.out.println("Would you like to: 1) Hit or 2) Stand or others to exit the game");
 	               decision = input.nextInt();
 	               getNum = false;
 
@@ -36,13 +36,31 @@ public class Player extends Person
 	           if(this.getHand().calculatedValue()>20){
 	               return;
 	           }
-	           //if they didnt bust or get 21, allow them to decide to hit or stand again by going back to this same method
+	           //if they didn't bust or get 21, allow them to decide to hit or stand again by going back to this same method
 	           else{
 	               this.makeDecision(deck, discard);
 	           }
 
 	           //if they type any number other than 1, we'll assume they're standing
-	       } else {
+	       } 
+	       else if(decision !=1 && decision !=2)
+	       {
+	    	   System.out.println();
+	    	   if(Game.wins > Game.losses)
+	    	   {
+	    		   System.out.println("You Won the game!.....");
+	    	   }
+	    	   else if(Game.wins < Game.losses)
+	    	   {
+	    		   System.out.println("You Loss the game!....");
+	    	   }
+	    	   else
+	    	   {
+	    		   System.out.println("No winners and No Lossers!....");
+	    	   }
+	    	   System.exit(0);
+	       }
+	       else {
 	           System.out.println("You stand.");
 	       }
 	}

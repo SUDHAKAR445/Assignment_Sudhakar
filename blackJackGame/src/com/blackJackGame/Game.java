@@ -2,7 +2,9 @@ package com.blackJackGame;
 
 public class Game
 {
-	private int wins , losses, pushes; // used to store the scores
+	static int wins; // used to store the scores
+	static int losses;
+	static int pushes;
 	private Deck deck , discarded;
 	private Dealer dealer;
 	private Player player;
@@ -29,7 +31,6 @@ public class Game
 		deck.shuffle();
 		startRound();
 	}
-	
 	
 	private void startRound() {
 
