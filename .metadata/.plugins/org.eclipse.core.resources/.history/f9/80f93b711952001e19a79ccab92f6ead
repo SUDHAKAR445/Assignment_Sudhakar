@@ -159,15 +159,16 @@ public class DoublyLinkedListImplementation {
         System.out.println("Enter a choice");
         int choice;
         while(true){
-        	System.out.println("1.Add First\n"
-        	 		+ "2.Add Last\n "
-             		+ "3.Add At particular Position\n"
-             		+ " 4.Delete First\n 5.Delete Last"
-             		+ "\n 6.Delete At particular Position"
-             		+ "\n 7.Search by value\n "
-             		+ "8.Display reverse of list\n"
-             		+ " 9.Display list\n "
-             		+ "10.Exit");      
+            System.out.println("1.Add First");
+            System.out.println("2.Add Last");
+            System.out.println("3.Add At particular Position");
+            System.out.println("4.Delete First");
+            System.out.println("5.Delete Last");
+            System.out.println("6.Delete At particular Position");
+            System.out.println("7.Search by value");
+            System.out.println("8.Display reverse of list");
+            System.out.println("9.Display list");
+            System.out.println("10.Exit");      
             int val,pos;
             choice=sc.nextInt();
             switch(choice){
