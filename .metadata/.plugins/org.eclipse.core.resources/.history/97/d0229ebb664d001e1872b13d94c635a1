@@ -1,0 +1,14 @@
+package com.blackJackGame;
+
+public class Player extends Person
+{
+	public Player()
+	{
+		super.setName("player");
+	}
+	
+	public void makeDecision()
+	{
+		
+	}
+}

@@ -1,0 +1,40 @@
+package com.blackJackGame;
+import java.util.*;
+public class Deck 
+{
+	private ArrayList<Card> deck;// deck will be used to manage an Cards(ArrayList)
+	public Deck()
+	{
+		deck = new ArrayList<Card>();
+	}
+	// printing all the 52 cards  in deck
+	
+	public Deck(boolean makeDeck)
+	{
+		deck = new ArrayList<Card>();
+		for(Suit suit : Suit.values())
+		{
+			for(Rank rank : Rank.values())
+			{
+				deck.add(new Card(suit, rank));
+			}
+		}
+	}
+	// Adding card to the deck
+	public void addCard(Card card)
+	{
+		deck.add(card);
+	}
+	
+	public String toString()
+	{
+		String output = "";
+		
+		for(Card card : deck)
+		{
+			output += card;
+			output +="\n";
+		}
+		return output;
+	}
+}

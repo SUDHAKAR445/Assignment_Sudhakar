@@ -1,0 +1,10 @@
+package com.blackJackGame;
+
+public enum Suit 
+{
+	private suitName;
+	Suit(String suitName)
+	{
+		
+	}
+}

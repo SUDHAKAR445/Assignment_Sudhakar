@@ -1,0 +1,19 @@
+package com.blackJackGame;
+interface Interface
+{
+	Suit getSuit();
+	Rank getRank();
+	String toString();
+}
+public class Main 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Welcome to BlackJack game");
+		
+		// To start your game we need create a new Game object 
+		
+		Game blackJack = new Game();
+		
+	}
+}

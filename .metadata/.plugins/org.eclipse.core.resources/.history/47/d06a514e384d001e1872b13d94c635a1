@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+package com.blackJackGame;
+
+/**
+ * 
+ */
+public enum Suit {
+
+}

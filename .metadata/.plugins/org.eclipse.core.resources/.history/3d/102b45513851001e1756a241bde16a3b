@@ -1,0 +1,231 @@
+package dataStructure;
+import java.util.*;
+public class LinkedListImplementation 
+{
+	Node head = null;
+	static class Node
+	{
+		int data;
+		Node next;
+		
+		
+		public Node(int data)
+		{
+			this.data = data;
+			this.next = null;
+		}
+	}
+	
+	public static LinkedListImplementation insert(LinkedListImplementation list , int data)
+	{
+		Node new_node = new Node(data);
+		if(list.head == null)
+		{
+			list.head = new_node;
+		}
+		else
+		{
+			Node last = list.head;
+			while(last.next != null)
+			{
+				last = last.next;
+			}
+			last.next = new_node;
+		}
+		return list;
+	}
+	
+	public static LinkedListImplementation insertBegin(LinkedListImplementation list , int data)
+	{
+		Node new_node = new Node(data);
+		new_node.next = list.head;
+		list.head = new_node;
+		return list;
+	}
+	public static LinkedListImplementation insertEnd(LinkedListImplementation list , int data)
+	{
+		Node new_node = new Node(data);
+		Node last = list.head;
+		while(last.next != null)
+		{
+			last = last.next;
+		}
+		last.next = new_node;
+		return list;
+	}
+	public static LinkedListImplementation insertAtPosition(LinkedListImplementation list,int data, int position)
+	{
+		if(position == 0)
+		{
+			insertBegin(list,data);
+		}
+		else
+		{
+			Node new_node = new Node(data);
+			Node prev = null;
+			Node curr = list.head;
+			int n = position ;
+			int count = 1;
+			while(curr.next != null && position !=0)
+			{
+				prev = curr;
+				curr = curr.next;
+				position --;
+				count++;
+				System.out.println(count);
+			}
+			if(position !=0)
+			{
+				System.out.println("You enter the position value greater than the linked list size");
+			}
+			else if(count == n)
+			{
+				curr.next = new_node;
+			}
+			else
+			{
+				prev.next = new_node;
+				new_node.next = curr;
+			}
+		}
+		return list;
+	}
+	public static void printList(LinkedListImplementation list)
+	{
+		Node current = list.head;
+		System.out.println("Linked List elements are : ");
+		
+		while(current != null)
+		{
+			System.out.println(current.data + " ");
+			current = current.next;
+		}
+	}
+	public static LinkedListImplementation deleteBegin(LinkedListImplementation list)
+	{
+		if(list.head == null)
+		{
+			System.out.println("Nothing to be deleted because list is empty");
+		}
+		else
+		{
+			Node temp = list.head;
+			list.head = temp.next;
+		}
+		return list;
+	}
+	
+	public static LinkedListImplementation deleteEnd(LinkedListImplementation list)
+	{
+		if(list.head == null)
+		{
+			System.out.println("Nothing to be deleted because list is empty");
+		}
+		else
+		{
+			Node prev = null;
+			Node curr = list.head;
+			while(curr.next != null)
+			{
+				prev = curr;
+				curr = curr.next;
+			}
+			prev.next = null;
+		}
+		return list;
+	}
+	public static LinkedListImplementation deleteAtGivenPosition(LinkedListImplementation list, int position)
+	{
+		Node temp = list.head;
+		Node prev = list.head;
+		for(int i =0; i<position; i++)
+		{
+			if(i == 0 && position == 1)
+			{
+				list.head = list.head.next;
+			}
+			else
+			{
+				if(i == position -1 && temp != null)
+				{
+					prev.next = temp.next;
+				}
+				else
+				{
+					prev = temp;
+					if(prev == null)
+					{
+						break;
+					}
+					temp = temp.next;
+				}
+			}
+		}
+		return list;
+	}
+	
+	public static LinkedListImplementation deleteNode(LinkedListImplementation list, int val)
+	{
+		if(list.head == null)
+		{
+			System.out.println("Element not present in the list");
+		}
+		else if(list.head.data == val)
+		{
+			if(list.head.next != null)
+			{
+				list.head.data = list.head.next.data;
+				list.head.next = list.head.next.next;
+				return list;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			Node prev = null;
+			Node curr = list.head;
+			while(curr.next != null)
+			{
+				prev = curr;
+				curr = curr.next;
+				if(curr.data == val)
+				{
+					break;
+				}
+			}
+			if(curr.next == null)
+			{
+				prev.next = null;
+			}
+			else
+			{
+				prev.next = curr.next;
+			}
+		}
+		return list;
+	}
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		LinkedListImplementation list = new LinkedListImplementation();
+		System.out.println("Enter the size of the linked list : ");
+		int n = sc.nextInt();
+		System.out.println("Enter linked list values :");
+		for(int i=0;i<n;i++)
+		{
+			int a = sc.nextInt();
+			list= insert(list, a);
+		}
+		//insertBegin(list, 10);
+		//insertEnd(list, 100);
+		insertAtPosition(list,111,5);
+		//deleteBegin(list);
+		//deleteEnd(list);
+		//deleteAtGivenPosition(list,1);
+		//deleteNode(list,3);
+		printList(list);
+	}
+}

@@ -1,0 +1,14 @@
+package com.blackJackGame;
+
+public class Game 
+{
+	private int wins , losses, pushes; // used to store the scores
+	
+	public Game()
+	{
+		// Whenever start our game we need set our instance variable to zero
+		wins = 0;
+		losses = 0;
+		pushes = 0;
+	}
+}

@@ -1,0 +1,16 @@
+package com.blackJackGame;
+
+public class Main 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Welcome to BlackJack game");
+		
+		// To start your game we need create a new Game object 
+		
+		Game blackJack = new Game();
+		
+		System.out.println(Suit.HEART);
+		System.out.println(Rank.ACE.rankValue);
+	}
+}
