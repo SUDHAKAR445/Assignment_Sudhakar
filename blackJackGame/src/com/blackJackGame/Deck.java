@@ -17,7 +17,8 @@ public class Deck
 	}
 		
 	//adding all the 52 cards  in deck
-	
+	//Time complexity = O(n^2)
+	//Space complexity = O(n)
 	public Deck(boolean makeDeck)
 	{
 		deck = new ArrayList<Card>();
@@ -32,6 +33,8 @@ public class Deck
 	
 	// Now shuffle the cards in the deck
 	
+	//Time complexity = O(n)
+	//Space complexity = O(n)
 	public void shuffle()
 	{
 		ArrayList<Card> shuffled = new ArrayList<Card>();
@@ -49,6 +52,7 @@ public class Deck
 	}
 	
 	// method to take card from the deck
+	//Time complexity = O(1)
 	public Card takeCard()
 	{
 		// take first card from the deck and remove that card from the deck
@@ -57,6 +61,7 @@ public class Deck
 		
 		return cardToTake;
 	}
+	//Time complexity = O(1)
 	public String toString()
 	{
 		String output = "";

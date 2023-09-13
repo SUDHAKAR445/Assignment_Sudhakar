@@ -1,8 +1,0 @@
-package overloadingAndOverriding;
-public class OverloadingAndOverriding 
-{
-	public static void main(String[] args)
-	{
-		
-	}
-}

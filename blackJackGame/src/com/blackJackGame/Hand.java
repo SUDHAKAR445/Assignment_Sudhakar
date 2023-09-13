@@ -33,7 +33,8 @@ public class Hand implements HandInterface
 	{
 		return hand.get(index);
 	}
-	
+	//Time complexity = O(n)
+	//Space complexity = O(1)
 	public int calculatedValue()
 	{
 		int value = 0;
@@ -57,6 +58,8 @@ public class Hand implements HandInterface
 		return value;
 	}
 	// toString() method to printing the dealer or the player's current head
+	//Time complexity = O(n)
+	//Space complexity = O(1)
 	public String toString()
 	{
 		String output = "";
