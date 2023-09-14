@@ -130,7 +130,6 @@ public class BSTImplementation
 				bst.root = bst.insert(bst.root,value);
 			//}
 		}
-		System.out.println(bst.root.data);
 		bst.deleteNode(bst.root, 10);
 		bst.inorderTraversal(bst.root);
 	}

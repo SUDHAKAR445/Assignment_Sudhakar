@@ -118,36 +118,50 @@ public class CircularLinkedListImplementaion
 	      }
 	    }
 	  }
-
-	  public void deleteAtPosition(int position)
+	  static int Length(Node head)
 	  {
-		  Node temp = head;
-		  Node prev = head;
-		  for(int i =0; i<position; i++)
-		  {
-			  if(i == 0 && position == 1)
-			  {
-				  head = head.next;
-			  }
-			  else
-			  {
-				  if(i == position -1 && temp != null)
-				  {
-					  prev.next = temp.next;
-				  }
-				  else
-				  {
-					  prev = temp;
-					  if(prev == null)
-					  {
-						  break;
-					  }
-					  temp = temp.next;
-					  tail = temp;
-					  tail.next = head;
-				  }
-			  }
-		  }
+	        Node current = head;
+	        int count = 0;
+	        if (head == null)
+	            return 0;
+	        else {
+	            do {
+	                current = current.next;
+	                count++;
+	            } while (current != head);
+	        }
+	        return count;
+	    }
+	  public void deleteAtPosition(int index)
+	  {
+		    
+		  	int len = Length(head);
+		    int count = 1;
+		    Node previous = head, next = head;
+		 
+		    if (head == null)
+		    {
+		        System.out.printf("\nDelete Last List is empty\n");
+		    }
+		    if (index >= len || index < 0)
+		    {
+		        System.out.printf("\nIndex is not Found\n");
+		    }
+		    if (index == 0)
+		    {
+		        deleteBegin();
+		    }
+		    while (len > 0)
+		    {
+		        if (index == count)
+		        {
+		            previous.next = next.next;
+		        }
+		        previous = previous.next;
+		        next = previous.next;
+		        len--;
+		        count++;
+		    }
 	  }
 	  public void deleteEnd() 
 	  {

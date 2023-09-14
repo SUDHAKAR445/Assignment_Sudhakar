@@ -1,0 +1,217 @@
+Enter a choice
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+20 10 
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+20 10 100 300 
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+10 100 300 
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+10 100 
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input position :
+Invalid position
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+10 100 111 333 444 
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input value to be searched :
+
+The element is found at index 1
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+444 333 111 100 10 
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+10 100 111 333 444 
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit

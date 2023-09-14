@@ -22,7 +22,7 @@ public class StackImplementation
 		    top++;
 		    array[top] = element;
 		    System.out.println("Pushed element: " + element);
-		}
+		} 
 	}
 		   
 	public void pop() 
@@ -73,6 +73,22 @@ public class StackImplementation
 			System.out.println("Stack is not full");
 		}
 	}
+	public void stackTraversl()
+	{
+		int arr[] = new int[top+1];
+		int i=0;
+		while(top!=-1)
+		{
+			System.out.println(array[top]);
+			arr[i]= array[top];
+			i++;
+			top--;
+		}
+		for(int j = i-1; j>=0; j--)
+		{
+			array[++top] = arr[j];
+		}
+	}
 	public void size()
 	{
 		System.out.println("Stack size is "+ (top+1));
@@ -87,7 +103,7 @@ public class StackImplementation
 		int choice = -1;
 		while(choice !=0)
 		{
-			System.out.println("Enter the choice :\n 1.push \n 2.pop \n 3.peek \n 4.isEmpty \n 5.size of the stack \n 6.isFull \n 0.exit");
+			System.out.println("Enter the choice :\n 1.push \n 2.pop \n 3.peek \n 4.isEmpty \n 5.size of the stack \n 6.isFull\n 7.Stack Traversal \n 0.exit");
 			choice = sc.nextInt();
 			switch(choice)
 			{
@@ -125,6 +141,11 @@ public class StackImplementation
 				case 6:
 				{
 					stack1.isFull();
+					break;
+				}
+				case 7:
+				{
+					stack1.stackTraversl();
 					break;
 				}
 				default:

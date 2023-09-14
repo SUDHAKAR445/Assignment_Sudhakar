@@ -1,0 +1,209 @@
+Enter a choice
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+3000 2000 1000 100 200
+
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+2000 1000 100 200
+
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input value to be searched :
+
+The element could not be found
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+2000 1000 100 200
+
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+200 100 1000 2000
+
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+100 1000 2000
+
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+Input element :
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit
+
+9999 100 1000 2000
+
+1.Add First
+2.Add Last
+ 3.Add At particular Position
+ 4.Delete First
+ 5.Delete Last
+ 6.Delete At particular Position
+ 7.Search by value
+ 8.Display reverse of list
+ 9.Display list
+ 10.Exit

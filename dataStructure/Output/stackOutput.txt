@@ -1,0 +1,242 @@
+Enter the size of the stack : 
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Enter the value to push into the stack : 
+Pushed element: 1
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Enter the value to push into the stack : 
+Pushed element: 2
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Enter the value to push into the stack : 
+Pushed element: 3
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Enter the value to push into the stack : 
+Pushed element: 4
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Enter the value to push into the stack : 
+Pushed element: 5
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Enter the value to push into the stack : 
+StackImplementation is full. Cannot push element.
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+5
+4
+3
+2
+1
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Popped element: 5
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Peeked element: 4
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Popped element: 4
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Peeked element: 3
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Stack is not full
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+3
+2
+1
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Stack size is 3
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Stack is not empty
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Popped element: 3
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Popped element: 2
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Popped element: 1
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+StackImplementation is empty. Cannot pop element.
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Stack is empty
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Stack size is 0
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
+Stack is not full
+Enter the choice :
+ 1.push 
+ 2.pop 
+ 3.peek 
+ 4.isEmpty 
+ 5.size of the stack 
+ 6.isFull
+ 7.Stack Traversal 
+ 0.exit
