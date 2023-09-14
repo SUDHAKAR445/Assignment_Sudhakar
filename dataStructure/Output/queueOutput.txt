@@ -1,0 +1,148 @@
+Enter the size of the queue :
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Enter the value to enqueue in the queue : 
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Enter the value to enqueue in the queue : 
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Enter the value to enqueue in the queue : 
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Enter the value to enqueue in the queue : 
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Enter the value to enqueue in the queue : 
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Enter the value to enqueue in the queue : 
+
+Queue is full
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+ 1 ,  2 ,  3 ,  4 ,  5 , Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+ 2 ,  3 ,  4 ,  5 , Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Queue is Full
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Queue is not empty
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Queue size is 4
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+Enter the value to enqueue in the queue : 
+Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit
+ 2 ,  3 ,  4 ,  5 ,  7 , Enter the choice : 
+ 1.Enqueue 
+ 2.Dequeue 
+ 3.Front 
+ 4.isFull 
+ 5.isEmpty 
+ 6.size 
+ 7.display 
+ 0.Exit

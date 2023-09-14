@@ -74,7 +74,7 @@ class Queue {
     }  
     void isFull()
     {
-    	if((rear-front)== queue.length-1)
+    	if(rear == queue.length-1)
     	{
     		System.out.println("Queue is Full");
     	}
@@ -102,7 +102,7 @@ class Queue {
     	}
     	else
     	{
-    		System.out.println("Queue size is "+ (rear-front));
+    		System.out.println("Queue size is "+ (rear-front+1));
     	}
     }
 }   
