@@ -1,217 +1,205 @@
-Enter a choice
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+Enter the size of the linked list : 
+Enter linked list values :
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter the value : 
+After inserted the value at begin : 
 
-20 10 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+10 1 2 3 4 5 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter the value : 
+After inserted the value at begin : 
 
-20 10 100 300 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+20 10 1 2 3 4 5 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter the value : 
+After inserted the value at end : 
 
-10 100 300 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+20 10 1 2 3 4 5 30 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter the value : 
+After inserted the value at end : 
 
-10 100 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input position :
-Invalid position
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+20 10 1 2 3 4 5 30 40 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter the value and the position : 
+After inserted the value at position : 
 
-10 100 111 333 444 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input value to be searched :
+1 20 10 1 2 3 4 5 30 40 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+After deleting element in the begin : 
 
-The element is found at index 1
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+20 10 1 2 3 4 5 30 40 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+After deleting element in the end : 
 
-444 333 111 100 10 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+20 10 1 2 3 4 5 30 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter the position to be deleted : 
+After deleting element in the given position : 
 
-10 100 111 333 444 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+20 10 1 3 4 5 30 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter the element to be search in the linked list : 
+
+The element is found at index 6
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter two elements to be swaped : 
+After swap elements in the Linked list : 
+
+20 10 1 3 4 30 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter the value : 
+After inserted the value at begin : 
+
+100 20 10 1 3 4 30 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter the value : 
+After inserted the value at begin : 
+
+300 100 20 10 1 3 4 30 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit
+Enter the value and the position : 
+After inserted the value at position : 
+
+300 100 20 10 4 1 3 4 30 
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 9.Swap the nodes using values
+ 0.exit

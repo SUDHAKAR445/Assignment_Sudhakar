@@ -1,209 +1,229 @@
-Enter a choice
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+Enter the size of the linked list : 
+Enter linked list values :
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+Enter the value : 
+After inserted the value at begin : 
 
-3000 2000 1000 100 200
+10 1 2 3 4 5
 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+Enter the value : 
+After inserted the value at begin : 
 
-2000 1000 100 200
+20 10 1 2 3 4 5
 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input value to be searched :
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+Enter the value : 
+After inserted the value at begin : 
 
-The element could not be found
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+30 20 10 1 2 3 4 5
 
-2000 1000 100 200
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+Enter the value : 
+After inserted the value at end : 
 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+30 20 10 1 2 3 4 5 100
 
-200 100 1000 2000
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+Enter the value : 
+After inserted the value at end : 
 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+30 20 10 1 2 3 4 5 100 200
 
-100 1000 2000
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+Enter the value : 
+After inserted the value at end : 
 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
-Input element :
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+30 20 10 1 2 3 4 5 100 200 300
 
-9999 100 1000 2000
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+Enter the value and the position : 
+After inserted the value at position : 
 
-1.Add First
-2.Add Last
- 3.Add At particular Position
- 4.Delete First
- 5.Delete Last
- 6.Delete At particular Position
- 7.Search by value
- 8.Display reverse of list
- 9.Display list
- 10.Exit
+30 20 20 10 1 2 3 4 5 100 200 300
+
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+After deleting element in the begin : 
+
+20 20 10 1 2 3 4 5 100 200 300
+
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+After deleting element in the end : 
+
+20 20 10 1 2 3 4 5 100 200
+
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+Enter the position to be deleted : 
+After deleting element in the given position : 
+
+20 20 10 2 3 4 5 100 200
+
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+After reversing the linked list : 
+
+200 100 5 4 3 2 10 20 20
+
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+Enter the element to be search in the linked list : 
+
+The element is found at index 7
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+After reversing the linked list : 
+
+20 20 10 2 3 4 5 100 200
+
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+After reversing the linked list : 
+
+200 100 5 4 3 2 10 20 20
+
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
+After reversing the linked list : 
+
+20 20 10 2 3 4 5 100 200
+
+Enter the choice :
+ 1.Insert At Begin 
+ 2.Insert At End 
+ 3.Insert At Position 
+ 4.Delete At Begin 
+ 5.Delete At End 
+ 6.Delete at given position
+ 7.Reverese the Linked list 
+ 8.Search the element in linked list  
+ 0.exit
