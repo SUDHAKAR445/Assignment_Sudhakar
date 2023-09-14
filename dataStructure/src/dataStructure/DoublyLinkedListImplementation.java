@@ -2,6 +2,7 @@ package dataStructure;
 
 import java.util.Scanner;
 
+
 class Node{
     int data;
     Node prev;
@@ -15,23 +16,42 @@ class Node{
     }
     Node head=null;
     Node tail=null;
-    void addFirst(int val){
-        Node newnode = new Node(val);
-        if(head==null){
+    
+    void insert(int val)
+    {
+    	Node newnode = new Node(val);
+        if(head==null)
+        {
             head=newnode;
             tail=newnode;
             size++;
         }
-        else{
+        else
+        {
+        	insertEnd(val);
+        }
+    }
+    void insertBegin(int val)
+    {
+        Node newnode = new Node(val);
+        if(head==null)
+        {
+            head=newnode;
+            tail=newnode;
+            size++;
+        }
+        else
+        {
             newnode.next=head;
             head.prev=newnode;
             head=newnode;
             size++;
         }
     }
-    void addLast(int val){
-        if(head==null){
-            addFirst(val);
+    void insertEnd(int val){
+        if(head==null)
+        {
+            insertBegin(val);
             return;
         }
         Node newnode = new Node(val);
@@ -40,30 +60,35 @@ class Node{
         tail=newnode;
         size++;
     }
-    void addAtPos(int pos, int val){
-        if(head==null){
-            addFirst(val);
+    void insertAtPosition(int val, int pos)
+    {
+    	if(head==null)
+        {
+            insertBegin(val);
             return;
         }
-        if(pos>size){
-            addLast(val);
+        if(pos>size)
+        {
+            insertEnd(val);
             return;
         }
-        if(pos<0){
-            addFirst(val);
+        if(pos<=0){
+            insertBegin(val);
             return;
         }
-        Node newnode=new Node(val);
-        Node curr=head;
-        for(int i=0;i<pos-1;i++)
-            curr=curr.next;
-        newnode.next=curr.next;
-        newnode.prev=curr;
-        curr.next=newnode;
-        newnode.next.prev=newnode;
-        size++;
+	    Node newnode=new Node(val);
+	    Node curr=head;
+	    for(int i=0;i<pos-1;i++)
+	    {
+	        curr=curr.next;
+	    }
+	    newnode.next=curr.next;
+	    newnode.prev=curr;
+	    curr.next=newnode;
+	    newnode.next.prev=newnode;
+	    size++;
     }
-    void delFirst(){
+    void deleteBegin(){
         if(head==null)
             System.out.println("List is empty");
         else{
@@ -73,7 +98,7 @@ class Node{
             size--;
         }
     }
-    void delLast(){
+    void deleteEnd(){
         Node temp=head;
         if(head==null)
             System.out.println("List is empty");
@@ -87,25 +112,31 @@ class Node{
         }
 
     }
-    void delAtPos(int pos){
+    void deleteAtPosition(int pos)
+    {
         Node temp=head;
         if(head==null)
+        {
             System.out.println("List is empty"); 
-        if(pos<0||pos>=size){
+        }
+        else if(pos<0||pos>=size)
+        {
             System.out.println("Invalid position");
-            return;
         }
-        if(pos==0){
-            delFirst();
-            return;
+        else if(pos==0)
+        {
+            deleteBegin();
         }
-        if(pos==size-1){
-            delLast();
-            return;
+        else if(pos==size-1)
+        {
+            deleteEnd();
         }
-        else{
+        else
+        {
             for(int i=0;i<pos;i++)
+            {
                 temp=temp.next;
+            }
             temp.prev.next=temp.next;
             temp.next.prev=temp.prev;
             temp.prev=null;
@@ -113,16 +144,18 @@ class Node{
             size--;
         } 
     }
-    void display(){
+    void printList(){
         Node curr=head;
         System.out.println();
-        while(curr!=null){
+        while(curr!=null)
+        {
             System.out.print(curr.data+" ");
             curr=curr.next;
         }
         System.out.println();
     }
-    void search(int val){
+    void search(int val)
+    {
         if(head==null)
         {
             System.out.println("\nList empty");
@@ -141,81 +174,184 @@ class Node{
         System.out.println("\nThe element could not be found");
     }
 
-    void displayrev(){
-        Node temp=tail;
-        System.out.println();
-        while(temp!=null){
-            System.out.print(temp.data+" ");
-            temp=temp.prev;
+    public void reverse()
+	  {
+    	 Node temp = null;
+         Node current = head;
+         while (current != null) 
+         {
+             temp = current.prev;
+             current.prev = current.next;
+             current.next = temp;
+             current = current.prev;
+         }
+         
+         if (temp != null) {
+             head = temp.prev;
+         }
+	  }
+    public void swapNodes(int x, int y) 
+    {
+        if (x == y) {
+            return; // No need to swap if x and y are the same
         }
-        System.out.println();
+
+        Node nodeX = null, nodeY = null;
+        Node current = head;
+
+        while (current != null) {
+            if (current.data == x) {
+                nodeX = current;
+            }
+            if (current.data == y) {
+                nodeY = current;
+            }
+
+            current = current.next;
+        }
+
+        if (nodeX == null || nodeY == null) {
+            // One or both of the nodes not found
+            return;
+        }
+
+        // Swap the previous pointers
+        Node tempPrev = nodeX.prev;
+        nodeX.prev = nodeY.prev;
+        nodeY.prev = tempPrev;
+
+        // Swap the next pointers
+        Node tempNext = nodeX.next;
+        nodeX.next = nodeY.next;
+        nodeY.next = tempNext;
+
+        // Update the next node's previous pointer if necessary
+        if (nodeX.next != null) {
+            nodeX.next.prev = nodeX;
+        }
+        if (nodeY.next != null) {
+            nodeY.next.prev = nodeY;
+        }
+
+        // Update the head if one of the swapped nodes was the head
+        if (nodeX == head) {
+            head = nodeY;
+        } else if (nodeY == head) {
+            head = nodeX;
+        }
     }
     
 }
 public class DoublyLinkedListImplementation {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        Node n=new Node();
-        System.out.println("Enter a choice");
-        int choice;
-        while(true){
-        	System.out.println("1.Add First\n"
-        	 		+ "2.Add Last\n "
-             		+ "3.Add At particular Position\n"
-             		+ " 4.Delete First\n 5.Delete Last"
-             		+ "\n 6.Delete At particular Position"
-             		+ "\n 7.Search by value\n "
-             		+ "8.Display reverse of list\n"
-             		+ " 9.Display list\n "
-             		+ "10.Exit");      
-            int val,pos;
-            choice=sc.nextInt();
-            switch(choice){
-                case 1:
-                    System.out.println("Input element :");
-                    val=sc.nextInt();
-                    n.addFirst(val);
-                    break;
-                case 2:
-                    System.out.println("Input element :");
-                    val=sc.nextInt();
-                    n.addLast(val);
-                    break;
-                case 3:
-                    System.out.println("Input element :");
-                    val=sc.nextInt();
-                    System.out.println("Input position :");
-                    pos=sc.nextInt();
-                    n.addAtPos(pos, val);
-                    break;
-                case 4:
-                    n.delFirst();
-                    break;
-                case 5:
-                    n.delLast();
-                    break;
-                case 6:
-                    System.out.println("Input position :");
-                    pos=sc.nextInt();
-                    n.delAtPos(pos);
-                    break;
-                case 7:
-                    System.out.println("Input value to be searched :");
-                    val=sc.nextInt();
-                    n.search(val);
-                    break;
-                case 8:
-                    n.displayrev();
-                    break;
-                case 9:
-                    n.display();
-                    break;
-                case 10:
-                    return;
-                default:
-                   System.out.println("Invalid choice");
-                   break;
-            }
-        }
+	public static void main(String[] args)
+	  {
+		    Scanner sc = new Scanner(System.in);
+		    Node list = new Node();
+			System.out.println("Enter the size of the linked list : ");
+			int n = sc.nextInt();
+			System.out.println("Enter linked list values :");
+			for(int i=0;i<n;i++)
+			{
+				int a = sc.nextInt();
+				list.insert(a);
+			}
+			int choice = -1;
+			while(choice != 0)
+			{
+				System.out.println("Enter the choice :\n 1.Insert At Begin \n 2.Insert At End "
+						+ "\n 3.Insert At Position \n 4.Delete At Begin "
+						+ "\n 5.Delete At End \n 6.Delete at given position"
+						+ "\n 7.Reverese the Linked list \n 8.Search the element in linked list "
+						+ " \n 9.Swap the nodes using values\n 0.exit");
+				choice = sc.nextInt();
+				switch(choice)
+				{
+				    case 0:
+				    {
+				    	break;
+				    }
+					case 1:
+					{
+						System.out.println("Enter the value : ");
+						int val = sc.nextInt();
+						list.insertBegin(val);
+						System.out.println("After inserted the value at begin : ");
+						list.printList();
+						break;
+					}
+					case 2:
+					{
+						System.out.println("Enter the value : ");
+						int val = sc.nextInt();
+						list.insertEnd(val);
+						System.out.println("After inserted the value at end : ");
+						list.printList();
+						break;
+					}
+					case 3:
+					{
+						System.out.println("Enter the value and the position : ");
+						int val = sc.nextInt();
+						int position = sc.nextInt();
+						list.insertAtPosition(val,position-1);
+						System.out.println("After inserted the value at position : ");
+						list.printList();
+						break;
+					}
+					case 4:
+					{
+						list.deleteBegin();
+						System.out.println("After deleting element in the begin : ");
+						list.printList();
+						break;
+					}
+					case 5:
+					{
+						list.deleteEnd();
+						System.out.println("After deleting element in the end : ");
+						list.printList();
+						break;
+					}
+					case 6:
+					{
+						System.out.println("Enter the position to be deleted : ");
+						int position = sc.nextInt();
+						list.deleteAtPosition(position-1);
+						System.out.println("After deleting element in the given position : ");
+						list.printList();
+						break;
+					}
+					case 7:
+					{
+						list.reverse();
+						System.out.println("After reversing the linked list : ");
+						list.printList();
+						break;
+					}
+					case 8:
+					{
+						System.out.println("Enter the element to be search in the linked list : ");
+						int element = sc.nextInt();
+						list.search(element);
+						break;
+					}
+					case 9:
+					{
+						System.out.println("Enter two elements to be swaped : ");
+						int element1 = sc.nextInt();
+						int element2 = sc.nextInt();
+						list.swapNodes(element1, element2);
+						System.out.println("After swap elements in the Linked list : ");
+						list.printList();
+						break;
+					}
+						
+					default :
+					{
+						System.out.println("Please enter the valid choice ");
+					}
+					
+				}
+			}
     }
 }

@@ -239,6 +239,49 @@ public class LinkedListImplementation
         else  
              System.out.println("Element is not present in the list");  
 	}
+	public static void swapNodes(LinkedListImplementation list, int x, int y) {
+        if (x == y) {
+            return;
+        }
+
+        Node prevX = null;
+        Node currX = list.head;
+        while (currX != null && currX.data != x) {
+            prevX = currX;
+            currX = currX.next;
+        }
+
+        Node prevY = null;
+        Node currY = list.head;
+        while (currY != null && currY.data != y) {
+            prevY = currY;
+            currY = currY.next;
+        }
+
+        if (currX == null || currY == null) {
+            // One or both of the nodes not found
+            return;
+        }
+
+        // Update the previous nodes' next pointers
+        if (prevX != null) {
+            prevX.next = currY;
+        } else {
+            list.head = currY;
+        }
+
+        if (prevY != null) {
+            prevY.next = currX;
+        } else {
+            list.head = currX;
+        }
+
+        // Swap the next pointers of currX and currY
+        Node temp = currX.next;
+        currX.next = currY.next;
+        currY.next = temp;
+    }
+	
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
@@ -258,6 +301,7 @@ public class LinkedListImplementation
 					+ "\n 3.Insert At Position \n 4.Delete At Begin "
 					+ "\n 5.Delete At End \n 6.Delete at given position"
 					+ " \n 7.Delete the particular elemnet \n 8.Reverese the Linked list \n 9.Search the element in linked list "
+					+ "\n 10.Swap two nodes using value"
 					+ "\n 0.exit");
 			choice = sc.nextInt();
 			switch(choice)
@@ -339,6 +383,16 @@ public class LinkedListImplementation
 					System.out.println("Enter the element to be search in the linked list : ");
 					int element = sc.nextInt();
 					search(list, element);
+					break;
+				}
+				case 10:
+				{
+					System.out.println("Enter two elements to be swaped : ");
+					int element1 = sc.nextInt();
+					int element2 = sc.nextInt();
+					swapNodes(list, element1, element2);
+					System.out.println("After swap elements in the Linked list : ");
+					printList(list);
 					break;
 				}
 				default :
