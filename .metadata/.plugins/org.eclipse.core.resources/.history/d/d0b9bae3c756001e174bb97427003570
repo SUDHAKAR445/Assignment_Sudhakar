@@ -98,6 +98,7 @@ public class NarrayTreeImp {
           } 
           else 
           {
+              // Recursively search in the children
               for (TreeNode child : root.children) {
                   delete(child, val);
               }
@@ -223,10 +224,6 @@ public class NarrayTreeImp {
         			System.out.println("N-ary Tree:");
         	        tree.display();
         	        break;
-        		}
-        		case 0:
-        		{
-        			break;
         		}
         		default:
         		{
