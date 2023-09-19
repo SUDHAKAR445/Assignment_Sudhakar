@@ -228,7 +228,7 @@ public class NarrayTreeImp {
         int choice = -1;
         while(choice != 0)
         {
-        	System.out.println(" \n 1.BFS\n 2.DFS \n 3.Delete \n 4.Height \n 5.Insert \n 6.Print\n 7.PreOrder \n 8.PostOrder \n 0.Exit");
+        	System.out.println(" 1.BFS\n 2.DFS \n 3.Delete \n 4.Height \n 5.Insert \n 6.Print\n 0.Exit");
         	choice = scanner.nextInt();
         	switch(choice)
         	{

@@ -103,7 +103,7 @@ public class NarrayTreeImp {
               }
           }
     }
-    
+
     public void dfs() {
         dfs(root);
     }
@@ -160,54 +160,6 @@ public class NarrayTreeImp {
 
         return height;
     }
-    
-    //Preorder traversal
-    public List<Integer> preOrder(TreeNode root) 
-    {
-        List<Integer> result = new ArrayList<>();
-        if (root == null) {
-            return result;
-        }
-        
-        result.add(root.data);
-        
-        for (TreeNode child : root.children) 
-        {
-            result.addAll(preOrder(child));
-        }
-        
-        return result;
-    }
-    
-    //Post order traversal
-    public List<Integer> postOrder(TreeNode root) 
-    {
-        List<Integer> result = new ArrayList<>();
-        if (root == null) {
-            return result;
-        }
-         
-        for (TreeNode child : root.children) 
-        {
-            result.addAll(postOrder(child));
-        }
-        
-        result.add(root.data);
-        
-        return result;
-    }
-    
-    //Printing the arrayList
-    
-    public void print(List<Integer>l)
-    {
-    	for(int i : l)
-    	{
-    		System.out.print(i +" ");
-    	}
-    	System.out.println();
-    }
-    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the root value: ");
@@ -228,7 +180,7 @@ public class NarrayTreeImp {
         int choice = -1;
         while(choice != 0)
         {
-        	System.out.println(" \n 1.BFS\n 2.DFS \n 3.Delete \n 4.Height \n 5.Insert \n 6.Print\n 7.PreOrder \n 8.PostOrder \n 0.Exit");
+        	System.out.println(" 1.BFS\n 2.DFS \n 3.Delete \n 4.Height \n 5.Insert \n 6.Print\n 0.Exit");
         	choice = scanner.nextInt();
         	switch(choice)
         	{
@@ -271,20 +223,6 @@ public class NarrayTreeImp {
         			System.out.println("N-ary Tree:");
         	        tree.display();
         	        break;
-        		}
-        		case 7:
-        		{
-        			List<Integer> l = tree.preOrder(tree.root);
-        			System.out.println("PreOrder Traversal :");
-        			tree.print(l);
-        			break;
-        		}
-        		case 8:
-        		{
-        			List<Integer> l = tree.postOrder(tree.root);
-        			System.out.println("PostOrder Traversal : ");
-        			tree.print(l);
-        			break;
         		}
         		case 0:
         		{
