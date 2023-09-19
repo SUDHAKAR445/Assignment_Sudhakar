@@ -1,0 +1,182 @@
+package dataStructure;
+import java.util.*;
+
+class BSTNode
+{
+	int data;
+	BSTNode left,right;
+	
+	public BSTNode(int value)
+	{
+		data = value;
+		left = null;
+		right = null;
+	}
+}
+public class BSTImplementation 
+{
+	BSTNode root;
+	
+	BSTImplementation()
+	{
+		root = null;
+	}
+	
+//	
+	//BSTNode insert(BSTNode root, int data)
+//	{
+//		if(root == null)
+//		{
+//			root = new BSTNode(data);
+//			return root;
+//		}
+//		if(data < root.data)
+//		{
+//			root.left = insert(root.left, data);
+//		}
+//		else if( data > root.data)
+//		{
+//			root.right = insert(root.right, data);
+//		}
+//		return root;
+//	}
+	BSTNode insert(BSTNode current, int value)
+	{		
+		if(current == null)
+		{
+			BSTNode newNode = new BSTNode(value);
+			return newNode;
+		}
+		else
+		{
+			if(value < current.data)
+				current.left = insert(current.left, value);
+			else
+				current.right = insert(current.right, value);
+		}		
+		return current;
+	}
+	BSTNode minimumNode(BSTNode root)
+	{
+		if(root.left != null)
+		{
+			return minimumNode(root.left);
+		}
+		else
+		{
+			return root;
+		}
+	}
+	
+	BSTNode deleteNode( BSTNode node, int value)
+	{
+		if(node == null)
+		{
+			return null;
+		}
+		else
+		{
+			if(value < node.data)
+			{
+				node.left = deleteNode(node.right, value);
+			}
+			else if(value > node.data)
+			{
+				node.right = deleteNode(node.left, value);
+			}
+			else
+			{
+				if(node.left == null && node.right == null)
+				{
+					node = null;
+				}
+				else if(node.left == null)
+				{
+					node = node.right;
+				}
+				else if(node.right == null)
+				{
+					node = node.left;
+				}
+				else
+				{
+					BSTNode temp = minimumNode(node.right);
+					node.data = temp.data;
+					node.right = deleteNode(node.right, temp.data);
+				}
+			}
+		}
+		return node;
+	}
+	void inorderTraversal(BSTNode node)
+	{
+		if(node == null)
+		{
+			return;
+		}
+		else
+		{
+			if(node.left!=null)
+			{
+				inorderTraversal(node.left);
+			}
+			System.out.print(node.data +" ");
+			if(node.right!=null)
+			{
+				inorderTraversal(node.right);
+			}
+		}
+	}
+	void preorderTraversal(BSTNode node)
+	{
+		if(node == null)
+		{
+			return;
+		}
+		System.out.print(node.data + " ");
+		if(node.left!=null)
+		{
+			preorderTraversal(node.left);
+		}
+		if(node.right!=null)
+		{
+			preorderTraversal(node.right);
+		}
+	}
+	void postorderTraversal(BSTNode node)
+	{
+		if(root == null)
+		{
+			return;
+		}
+		if(node.left!=null)
+		{
+			preorderTraversal(node.left);
+		}
+		if(node.right!=null)
+		{
+			preorderTraversal(node.right);
+		}
+		System.out.print(node.data + " ");
+	}
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		BSTImplementation bst = new BSTImplementation();
+		System.out.println("Enter the size of the tree : ");
+		int n = sc.nextInt();
+		
+		for(int i=0; i<n; i++)
+		{
+			int value = sc.nextInt();
+			bst.root = bst.insert(bst.root,value);
+		}
+		bst.deleteNode(bst.root, 10);
+		System.out.println("Inorder Traversal");
+		bst.inorderTraversal(bst.root);
+//		System.out.println("Preorder Traversal");
+//		bst.preorderTraversal(bst.root);
+//		System.out.println("Postorder Traversal");
+//		bst.postorderTraversal(bst.root);
+	}
+}

@@ -1,0 +1,115 @@
+package dataStructure;
+
+import java.util.*;
+
+class TreeNode {
+    int data;
+    List<TreeNode> children;
+
+    public TreeNode(int data) {
+        this.data = data;
+        this.children = new ArrayList<>();
+    }
+
+    public void addChild(TreeNode child) {
+        children.add(child);
+    }
+}
+
+public class NarrayTreeImp {
+    private TreeNode root;
+
+    public NarrayTreeImp(int data) {
+        root = new TreeNode(data);
+    }
+
+    public TreeNode getRoot() {
+        return root;
+    }
+
+    public void insert(int parentData, int data) {
+        insert(root, parentData, data);
+    }
+
+    private void insert(TreeNode node, int parentData, int data) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.data == parentData) {
+            node.addChild(new TreeNode(data));
+        } else {
+            for (TreeNode child : node.children) {
+                insert(child, parentData, data);
+            }
+        }
+    }
+
+    public void display() {
+        display(root, 0);
+    }
+
+    private void display(TreeNode node, int level) {
+        if (node == null) {
+            return;
+        }
+
+        for (int i = 0; i < level; i++) {
+            System.out.print("  ");
+        }
+        System.out.println(node.data);
+
+        for (TreeNode child : node.children) {
+            display(child, level + 1);
+        }
+    }
+    
+    int height(){
+        int height = 0;
+
+        Deque<TreeNode> q = new LinkedList<>();
+
+        q.add(root);
+        q.add(null);
+
+        while (!q.isEmpty()) {
+            TreeNode temp = q.poll();
+
+            if(temp == null){
+                height++;
+
+                if(!q.isEmpty()){
+                    q.add(null);
+                }
+
+                continue;
+            }
+
+            q.addAll(temp.children);
+        }
+
+        return height;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the root value: ");
+        int rootValue = scanner.nextInt();
+        NarrayTreeImp tree = new NarrayTreeImp(rootValue);
+
+        while (true) {
+            System.out.print("Enter the parent value (-1 to exit): ");
+            int parentValue = scanner.nextInt();
+            if (parentValue == -1) {
+                break;
+            }
+            System.out.print("Enter the new node value: ");
+            int newValue = scanner.nextInt();
+            tree.insert(parentValue, newValue);
+        }
+
+        System.out.println("N-ary Tree:");
+        tree.display();
+        tree.height();
+    }
+}
+

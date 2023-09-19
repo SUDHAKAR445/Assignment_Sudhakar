@@ -22,24 +22,46 @@ public class BSTImplementation
 		root = null;
 	}
 	
-	BSTNode insert(BSTNode root, int data)
+	BSTNode insert(BSTNode current, int value)
+	{		
+		if(current == null)
+		{
+			BSTNode newNode = new BSTNode(value);
+			return newNode;
+		}
+		else
+		{
+			if(value < current.data)
+				current.left = insert(current.left, value);
+			else
+				current.right = insert(current.right, value);
+		}		
+		return current;
+	}
+	
+	void search(BSTNode root, int val)
 	{
 		if(root == null)
 		{
-			root = new BSTNode(data);
-			return root;
+			System.out.println("Search element is not found in BST");
+			return;
 		}
-		if(data < root.data)
+		else
 		{
-			root.left = insert(root.left, data);
+			if(val < root.data)
+			{
+				search(root.left, val);
+			}
+			else if(val > root.data)
+			{
+				search(root.right, val);
+			}
+			else
+			{
+				System.out.println("Search element is found in BST");
+			}
 		}
-		else if( data > root.data)
-		{
-			root.right = insert(root.right, data);
-		}
-		return root;
 	}
-	
 	BSTNode minimumNode(BSTNode root)
 	{
 		if(root.left != null)
@@ -56,17 +78,17 @@ public class BSTImplementation
 	{
 		if(node == null)
 		{
-			return null;
+			return node;
 		}
 		else
 		{
 			if(value < node.data)
 			{
-				node.left = deleteNode(node.right, value);
+				node.left = deleteNode(node.left, value);
 			}
 			else if(value > node.data)
 			{
-				node.right = deleteNode(node.left, value);
+				node.right = deleteNode(node.right, value);
 			}
 			else
 			{
@@ -94,7 +116,7 @@ public class BSTImplementation
 	}
 	void inorderTraversal(BSTNode node)
 	{
-		if(root == null)
+		if(node == null)
 		{
 			return;
 		}
@@ -111,6 +133,76 @@ public class BSTImplementation
 			}
 		}
 	}
+	void preorderTraversal(BSTNode node)
+	{
+		if(node == null)
+		{
+			return;
+		}
+		System.out.print(node.data + " ");
+		if(node.left!=null)
+		{
+			preorderTraversal(node.left);
+		}
+		if(node.right!=null)
+		{
+			preorderTraversal(node.right);
+		}
+	}
+	void postorderTraversal(BSTNode node)
+	{
+		if(root == null)
+		{
+			return;
+		}
+		if(node.left!=null)
+		{
+			preorderTraversal(node.left);
+		}
+		if(node.right!=null)
+		{
+			preorderTraversal(node.right);
+		}
+		System.out.print(node.data + " ");
+	}
+	
+	static List<List<Integer>> levelOrderTraversal(BSTNode root)
+	{
+		List<List<Integer>> l = new LinkedList<>();
+		Deque<BSTNode> q = new LinkedList<BSTNode>();
+		
+		if(root == null)
+		{
+			return l;
+		}
+		
+		q.add(root);
+		
+		while( !q.isEmpty())
+		{
+			List<Integer> ll = new LinkedList<>();
+			int count = q.size();
+			while(count!=0)
+			{
+				BSTNode temp = q.peek();
+				ll.add(temp.data);
+				q.poll();
+				if(temp.left != null)
+				{
+					q.add(temp.left);
+				}
+				if(temp.right != null)
+				{
+					q.add(temp.right);
+				}
+				count--;
+			}
+			l.add(ll);
+		}
+		return l;
+	}
+	
+			
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
@@ -121,16 +213,27 @@ public class BSTImplementation
 		for(int i=0; i<n; i++)
 		{
 			int value = sc.nextInt();
-//			if(i==0)
-//			{
-//				bst.root = bst.insert(bst.root,value);
-//			}
-//			else
-//			{
-				bst.root = bst.insert(bst.root,value);
-			//}
+			bst.root = bst.insert(bst.root,value);
 		}
-		bst.deleteNode(bst.root, 10);
+		bst.root = bst.deleteNode(bst.root, 10);
+		bst.search(bst.root, 100);
+		System.out.println("Inorder Traversal");
 		bst.inorderTraversal(bst.root);
+		System.out.println("\nPreorder Traversal");
+		bst.preorderTraversal(bst.root);
+		System.out.println("\nPostorder Traversal");
+		bst.postorderTraversal(bst.root);
+		System.out.println();
+		List<List<Integer>> l = levelOrderTraversal(bst.root);
+		int level = 0;
+		for( List e : l)
+		{
+			System.out.println(level++);
+			for(int i=0; i<e.size();i++)
+			{
+				System.out.print(e.get(i)+" ");
+			}
+			System.out.println();
+		}
 	}
 }
