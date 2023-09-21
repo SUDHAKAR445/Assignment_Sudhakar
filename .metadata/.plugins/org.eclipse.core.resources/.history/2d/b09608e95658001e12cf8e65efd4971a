@@ -4,12 +4,6 @@ import java.util.Scanner;
 
 public class Main 
 {
-	public static void swap(int[] arr, int i, int j)
-    {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    } 
 	public static void print(int arr[], int n)
 	{
 		for(int i=0;i<n;i++)
@@ -68,17 +62,6 @@ public class Main
 			q.quickSort(arr, 0, n-1);
 			System.out.println("After perform the Quick sorting : ");
 			print(arr,n);
-		}
-		else if(choice == 6)
-		{
-			CockTailSorting c = new CockTailSorting();
-			c.cocktailSort(arr, n);
-			System.out.println("After perform the cocktail sorting : ");
-			print(arr,n);
-		}
-		else
-		{
-			System.out.println("Enter the valid choice !..");
 		}
 		sc.close();
 	}

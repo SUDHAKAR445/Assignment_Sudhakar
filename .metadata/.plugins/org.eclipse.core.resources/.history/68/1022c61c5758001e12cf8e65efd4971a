@@ -1,6 +1,12 @@
 package sortingAlgorithm;
 
 public class QuickSorting {
+	static void swap(int[] arr, int i, int j)
+    {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    } 
 	public static int partitionArray(int arr[], int left, int right)
 	{
 		int pivot = arr[right];
@@ -11,10 +17,10 @@ public class QuickSorting {
 			if(arr[j]<pivot)
 			{
 				i++;
-				Main.swap(arr, i, j);
+				swap(arr, i, j);
 			}
 		}
-		Main.swap(arr, i+1, right);
+		swap(arr, i+1, right);
 		return (i+1);
 	}
 	public void quickSort(int arr[], int left, int right)

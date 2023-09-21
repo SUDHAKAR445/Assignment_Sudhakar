@@ -69,17 +69,6 @@ public class Main
 			System.out.println("After perform the Quick sorting : ");
 			print(arr,n);
 		}
-		else if(choice == 6)
-		{
-			CockTailSorting c = new CockTailSorting();
-			c.cocktailSort(arr, n);
-			System.out.println("After perform the cocktail sorting : ");
-			print(arr,n);
-		}
-		else
-		{
-			System.out.println("Enter the valid choice !..");
-		}
 		sc.close();
 	}
 }
