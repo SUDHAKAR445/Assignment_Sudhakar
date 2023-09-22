@@ -30,8 +30,9 @@ public class Main
 			arr[i]=sc.nextInt();
 		}
 		System.out.println("Sorting: \n 1.Insertion Sort \n 2.Bubble Sort"
-				+ "\n 3.Selection Sort \n 4.Merge Sort \n 5.Quick Sort "
-				+ "\n 6.Cocktail Sort");
+				+ "\n 3.Selection Sort \n 4.Merge Sort \n 5.Quick Sort(Taking last element as pivot)"
+				+ "\n 6.Quick Sort(Taking start element as pivot)\n 7.Quick Sort(Taking middle element as pivot)"
+				+ "\n 8.Cocktail Sort");
 		System.out.println("Enter the choice : ");
 		int choice = sc.nextInt();
 		if(choice == 1)
@@ -64,12 +65,26 @@ public class Main
 		}
 		else if( choice == 5)
 		{
-			QuickSorting q = new QuickSorting();
+			QuickSortingLast q = new QuickSortingLast();
 			q.quickSort(arr, 0, n-1);
 			System.out.println("After perform the Quick sorting : ");
 			print(arr,n);
 		}
-		else if(choice == 6)
+		else if( choice == 6)
+		{
+			QuickSortingStart q = new QuickSortingStart();
+			q.quickSort(arr, 0, n-1);
+			System.out.println("After perform the Quick sorting : ");
+			print(arr,n);
+		}
+		else if( choice == 7)
+		{
+			QuickSortingMiddle q = new QuickSortingMiddle();
+			q.quickSort(arr, 0, n-1);
+			System.out.println("After perform the Quick sorting : ");
+			print(arr,n);
+		}
+		else if(choice == 8)
 		{
 			CockTailSorting c = new CockTailSorting();
 			c.cocktailSort(arr, n);

@@ -8,6 +8,7 @@ public class CockTailSorting
 		int start = 0;
 		int end = n;
 		int iteration = 1;
+		int count = 0;
 		while(swap == true)
 		{
 			swap = false;
@@ -19,6 +20,7 @@ public class CockTailSorting
 					Main.swap(arr, i, i+1);
 					swap = true;
 				}
+				count++;
 			}
 			
 			if(swap == false)
@@ -37,6 +39,7 @@ public class CockTailSorting
 					Main.swap(arr, i, i+1);
 					swap = true;
 				}
+				count++;
 			}
 			
 			start++;
@@ -44,5 +47,6 @@ public class CockTailSorting
 			System.out.println("Iteration : "+ iteration++);
 			Main.print(arr,n);
 		}
+		System.out.println("Iterartion count:"+count+"\n");
 	}
 }

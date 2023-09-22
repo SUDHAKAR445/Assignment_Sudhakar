@@ -9,4 +9,5 @@
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="sortingAlgorithm.Main"/>
     <fullyQualifiedTypeName name="graphImplementation.Graph"/>
+    <fullyQualifiedTypeName name="sortingAlgorithm.CockTailSorting"/>
 </qualifiedTypeNameHistroy>
