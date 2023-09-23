@@ -2,7 +2,7 @@ package sortingAlgorithm;
 
 public class QuickSortingMiddle 
 {
-	void quickSort(int arr[],int left,int right)
+	static void quickSort(int arr[],int left,int right)
 	{ 
 	int start=left;
 	int end=right;

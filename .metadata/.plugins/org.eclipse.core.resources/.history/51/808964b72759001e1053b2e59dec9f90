@@ -32,7 +32,7 @@ public class Main
 		System.out.println("Sorting: \n 1.Insertion Sort \n 2.Bubble Sort"
 				+ "\n 3.Selection Sort \n 4.Merge Sort \n 5.Quick Sort(Taking last element as pivot)"
 				+ "\n 6.Quick Sort(Taking start element as pivot)\n 7.Quick Sort(Taking middle element as pivot)"
-				+ "\n 8.Cocktail Sort \n 9.MergeSort without using extra space");
+				+ "\n 8.Cocktail Sort");
 		System.out.println("Enter the choice : ");
 		int choice = sc.nextInt();
 		if(choice == 1)
