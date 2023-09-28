@@ -1,0 +1,17 @@
+Customer
+Primary Key: email
+
+shopping-basket
+Primary Key: basketID
+
+Book
+Primary Key: ISBN
+
+Author
+Primary Key: (name,address)
+
+Publisher
+Primary Key: name
+
+warehouse
+Primary Key: code
