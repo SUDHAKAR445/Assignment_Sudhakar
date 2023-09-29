@@ -1,123 +1,129 @@
-create database Books_DB;
-use books_db;
-
-create table customer(
-	CustomerId int primary key auto_increment,
-    Name varchar(255),
-    Email varchar(255),
-    Phone varchar(10),
-    Address varchar(255)
+create database Book_Music;
+use Book_music;
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    Name VARCHAR(255),
+    Email VARCHAR(255),
+    Phone VARCHAR(20),
+    Address VARCHAR(255)
 );
 
-create table Orders(
-	OrderId int primary key auto_increment,
-    OrderDate date,
-    TotalAmount decimal(10,2)
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2),
+    CustomerID INT,
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 );
 
-create table Book(
-	ISBN varchar(13) primary key,
-    Title varchar(255),
-    Price decimal(10,2),
-    Author varchar(255),
-    Publisher varchar(255),
-    PublicationYear int,
-    Category varchar(255)
+CREATE TABLE Book (
+    ISBN VARCHAR(13) PRIMARY KEY,
+    Title VARCHAR(255),
+    Price DECIMAL(10, 2),
+    Author VARCHAR(255),
+    Publisher VARCHAR(255),
+    PublicationYear INT,
+    StockCount INT,
+    AuthorId INT,
+    PublisherId INT,
+    foreign key(AuthorId) references Author(AuthorID),
+    foreign key(PublisherId) references Publisher(PublisherId)
 );
 
-create table Author(
-	AuthorId int primary key auto_increment,
-    AuthorName varchar(100)
+CREATE TABLE Author (
+    AuthorID INT PRIMARY KEY,
+    AuthorName VARCHAR(255)
 );
 
-create table Publisher(
-	PublisherID int primary key auto_increment,
-    PublisherName varchar(100)
+CREATE TABLE Publisher (
+    PublisherID INT PRIMARY KEY,
+    PublisherName VARCHAR(255)
 );
 
-create table Category(
-	CategoryID int primary key auto_increment,
-    CategeoryName varchar(200)
+CREATE TABLE MusicItem (
+    MusicItemID INT PRIMARY KEY,
+    Title VARCHAR(255),
+    Artist VARCHAR(255),
+    Format ENUM('Cassette', 'CD') NOT NULL,
+    Price DECIMAL(10, 2),
+    StockCount INT
 );
 
-create table Supplier(
-	SupplierID int primary key auto_increment,
-    SupplierName varchar(255)
+CREATE TABLE Item (
+    ItemID INT PRIMARY KEY,
+    Title VARCHAR(255),
+    Price DECIMAL(10, 2)
 );
 
-create table Employee(
-	EmployeeID int primary key auto_increment,
-    EmployeeName varchar(255)
-);
-
-create table MusicItem(
-	MusicItemID int primary key auto_increment,
-    Title varchar(255),
-    Artist varchar(255),
-    format ENUM ('Cassette','CD'),
-    Price decimal(10,2)
-);
-
-create table Item(
-	ItemID int primary key auto_increment,
-    Title varchar(200),
-    Price decimal(10,2)
-);
-
-create table BookIsAnItem(
-	ISBN varchar(13) primary key,
-    ItemID int,
-    foreign key (ISBN) references Book(ISBN),
-    foreign key (ItemID) references Item(ItemID)
-);
-
-create table MusicCassette(
-	MusicCassetteID int primary key auto_increment,
-    ItemID int,
-    Artist varchar(255),
-    format ENUM('Cassette'),
-    Price decimal(10,2),
-    foreign key (ItemID) references Item(ItemID)
-);
-
-
-create table CompactDisc (
-    CompactDiscID int primary key auto_increment,
-    ItemID int,
-    Artist varchar(255),
-    Format ENUM('CD'),
-    Price decimal(10, 2),
-    foreign key (ItemID) references Item(ItemID)
-);
-
-create table Basket(
-	BasketId int primary key auto_increment
-);
-
-create table contains(
-	BasketId int,
-    ItemId int,
-    foreign key(BasketId) references Basket(BasketId),
-    foreign key (ItemId) references Item(ItemId)
-);
-
-create table ContainsOrder(
-	OrderId int,
-    ISBN varchar(13),
-    foreign key(Orderid) references orders(orderId),
+CREATE TABLE BookIsAnItem (
+    ISBN VARCHAR(13) PRIMARY KEY,
+    ItemID INT,
+    FOREIGN KEY (ItemID) REFERENCES Item(ItemID),
     foreign key (ISBN) references Book(ISBN)
 );
 
-create table PublishedBy(
-	ISBN varchar(13),
-    PublisherID int,
-    foreign key (ISBN) references Book(ISBN),
-    foreign key (PublisherID) references Publisher(PublisherID)
+CREATE TABLE MusicCassette (
+    MusicCassetteID INT PRIMARY KEY,
+    ItemID INT,
+    Format ENUM('Cassette') NOT NULL,
+    FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
-use books_db;
-CREATE TABLE Sells (
-    SupplierID INT,
-    MusicItemID INT,
-    FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID),
-    FOREIGN KEY (MusicItemID) REFERENCES MusicItem(MusicItemID)
+
+CREATE TABLE CompactDisc (
+    CompactDiscID INT PRIMARY KEY,
+    ItemID INT,
+    Format ENUM('CD') NOT NULL,
+    FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
+
+CREATE TABLE Basket (
+    BasketID INT PRIMARY KEY,
+    CustomerID INT,
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);
+
+CREATE TABLE Contains (
+    BasketID INT,
+    ItemID INT,
+    FOREIGN KEY (BasketID) REFERENCES Basket(BasketID),
+    FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+);
+
+CREATE TABLE Stock (
+    WarehouseID INT,
+    ItemID INT,
+    ItemType ENUM('Book', 'MusicCassette', 'CompactDisc') NOT NULL,
+    StockCount INT,
+    PRIMARY KEY (WarehouseID, ItemID, ItemType),
+    FOREIGN KEY (WarehouseID) REFERENCES Warehouse(WarehouseID),
+    FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+);
+
+CREATE TABLE Warehouse (
+    WarehouseID INT PRIMARY KEY,
+    WarehouseName VARCHAR(255),
+    Location VARCHAR(255)
+);
+
+CREATE TABLE paymentMethod(
+	paymentMethodId int primary key auto_increment,
+    PaymentMethodName varchar(255),
+    CustomerId int,
+    result varchar(255)
+);
+
+ALTER TABLE Paymentmethod
+ADD CONSTRAINT FK_Order_payment FOREIGN KEY (customerId) REFERENCES customer(customerId);
+
+alter table contains add orderId int primary key;
+ALTER TABLE contains
+ADD CONSTRAINT FK_Order_Contains FOREIGN KEY (OrderID) REFERENCES Orders(OrderID);
+
+ALTER TABLE Contains
+ADD CONSTRAINT FK_Contains_Item FOREIGN KEY (ItemID) REFERENCES Item(ItemID);
+
+ALTER TABLE Stock
+ADD CONSTRAINT FK_Stock_Warehouse FOREIGN KEY (WarehouseID) REFERENCES Warehouse(WarehouseID);
+
+ALTER TABLE Stock
+m CONSTRAINT FK_Stock_Item FOREIGN KEY (ItemID) REFERENCES Item(ItemID);
