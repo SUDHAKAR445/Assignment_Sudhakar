@@ -2,7 +2,12 @@ create database Sports_DB;
 
 use Sports_DB;
 
-
+create table season (
+	seasonId int primary key auto_increment,
+    year int,
+    startDate date,
+    enddate date
+);
 create table League(
 	LeagueID int primary key auto_increment,
     LeagueName varchar(255),
@@ -61,3 +66,17 @@ create table PlayerStatistics(
     foreign key(MatchID) references Matches(MatchID),
     foreign key(PlayerID) references Player(PlayerID)
 );
+
+alter table league add constraint FK_season_id foreign key (season) references season(seasonid); 
+
+alter table team add seasonId int;
+
+alter table team add constraint team_season_id foreign key (seasonId) references season(seasonid); 
+
+alter table player add teamId int;
+
+alter table player add constraint FK_Oteam_id foreign key (teamId) references team(teamid); 
+
+alter table matches add seasonId int;
+
+alter table matches add constraint matches_season_id foreign key (seasonId) references season(seasonid); 
