@@ -1,0 +1,31 @@
+package com.trustrace.assignment.scm.model;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data	 
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection="certificateAgency")
+public class CertificateAgency {
+	
+	@Id
+	private String _id;
+	
+	@Field("name")
+	private String name;
+	
+	@Field("contanctPerson")
+	private String contactPerson;
+	
+	@Field("emailId")
+	private String emailId;
+	
+	@Field("phone")
+	private long phone;
+}
