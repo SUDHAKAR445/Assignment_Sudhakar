@@ -24,6 +24,8 @@ public interface AccountService
 	void updateAccount(Account a);
 	
 	void deleteAccount(String id);
+
+    void updateAccountName(String id, String newName);
 	
 	//void accountNameChange(String oldName, String newName);
 }

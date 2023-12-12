@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.trustrace.assignment.scm.dao.DaoService;
 import com.trustrace.assignment.scm.model.Account;
 import com.trustrace.assignment.scm.service.AccountService;
 import com.trustrace.assignment.scm.repository.AccountRepository;
@@ -14,6 +15,9 @@ public class AccountServiceImp implements AccountService{
 
 	@Autowired
 	AccountRepository accountRepo;
+
+	@Autowired
+	DaoService dao;
 	
 //	public List<Account> getAllData(){
 //		List<Account> list = new ArrayList<>();
@@ -40,6 +44,10 @@ public class AccountServiceImp implements AccountService{
 	
 	public List<Account> getAllAccount() {
 		return accountRepo.findAll();
+	}
+
+	public void updateAccountName(String id,String newName) {
+		dao.updateAccountName(id, newName);
 	}
 //	public void accountNameChange(String oldName, String newName) {
 //		dao.accountNameChange(oldName, newName);

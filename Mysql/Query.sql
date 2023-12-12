@@ -7,13 +7,12 @@ create table Student(
     Name varchar(255),
     Program varchar(100)
 );
-drop table Instructor;
+
 create table Instructor(
-	InstructorId int,
+	InstructorId int primary key,
     Name varchar(255),
     Department varchar(100),
-    Title varchar(100),
-    constraint PK_KEY primary key(InstructorId,Department)
+    Title varchar(100)
 );
 
 create table Course(
