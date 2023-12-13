@@ -1,5 +1,7 @@
 package com.trustrace.assignment.scm.model;
 import java.util.Date;
+
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -20,7 +22,7 @@ public class RawMaterial {
     private String name;
 
     @Field("supplierID")
-    private String supplierID;
+    private ObjectId supplierID;
 
     @Field("quantity")
     private String quantity;

@@ -3,6 +3,7 @@ package com.trustrace.assignment.scm.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -24,10 +25,10 @@ public class Transaction {
     private String quantity;
 
     @Field("sellerID")
-    private String sellerID;
+    private ObjectId sellerID;
 
     @Field("buyerID")
-    private String buyerID;
+    private ObjectId buyerID;
 
     @Field("shipdate")
     private Date shipDate;
@@ -36,11 +37,11 @@ public class Transaction {
     private Date arrivalDate;
 
     @Field("orderID")
-    private String orderID;
+    private ObjectId orderID;
 
     @Field("rawMaterialReference")
-    private ArrayList<String> rawMaterialReference;
+    private ArrayList<ObjectId> rawMaterialReference;
 
     @Field("productionReference")
-    private ArrayList<String> productionReference;
+    private ArrayList<ObjectId> productionReference;
 }

@@ -3,6 +3,7 @@ package com.trustrace.assignment.scm.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -21,7 +22,7 @@ public class CertificateDetails
 	private String _id;
 	
 	@Field("agencyID")
-	private String agencyID;
+	private ObjectId agencyID;
 	
 	@Field("name")
 	private String name;

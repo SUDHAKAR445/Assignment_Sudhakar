@@ -2,6 +2,7 @@ package com.trustrace.assignment.scm.model;
 
 import java.util.ArrayList;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -37,16 +38,16 @@ public class Account{
 	private String countryOrigin;
 	
 	@Field("certifictaions")
-	private ArrayList<String> certifications;
+	private ArrayList<ObjectId> certifications;
 	
 	@Field("contact")
 	private Supp contact;
 	
 	@Field("supplier")
-	private ArrayList<String> supplier;
+	private ArrayList<ObjectId> supplier;
 	
 	@Field("brand")
-	private ArrayList<String> brand;
+	private ArrayList<ObjectId> brand;
 	
 	@Field("productCategories")
 	private ArrayList<String> productCategories;	
@@ -61,6 +62,7 @@ public class Account{
 	
 	@Data	 
 	@AllArgsConstructor
+	@NoArgsConstructor
 	class Supp
 	{
 		String street;

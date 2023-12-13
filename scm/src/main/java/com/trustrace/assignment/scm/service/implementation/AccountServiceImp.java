@@ -30,24 +30,44 @@ public class AccountServiceImp implements AccountService{
 	}
 	
 	public String saveAccount(Account a) {
+		if(accountRepo.existsById(a.get_id()))
+		{
+			return "Account id allready exists";
+		}
 		accountRepo.save(a);
 		return "Account saved Successfully id: "+ a.get_id();
 	}
 	
-	public void updateAccount(Account a) {
+	public String updateAccount(Account a) {
+		if(!accountRepo.existsById(a.get_id()))
+		{
+			return "Account id doesn't exists";
+		}
 		accountRepo.save(a);
+		return "Account updated successfully";
 	}
 	
-	public void deleteAccount(String id) {
+	public String deleteAccount(String id) {
+		if(!accountRepo.existsById(id))
+		{
+			return "Account id doesn't exists";
+		}
 		accountRepo.deleteById(id);
+		return "Account deleted successfully";
 	}
 	
 	public List<Account> getAllAccount() {
 		return accountRepo.findAll();
 	}
 
-	public void updateAccountName(String id,String newName) {
+	public String updateAccountName(String id,String newName) 
+	{
+		if(!accountRepo.existsById(id))
+		{
+			return "Account id doesn't exists";
+		}
 		dao.updateAccountName(id, newName);
+		return "Account name changed Successfully";
 	}
 //	public void accountNameChange(String oldName, String newName) {
 //		dao.accountNameChange(oldName, newName);

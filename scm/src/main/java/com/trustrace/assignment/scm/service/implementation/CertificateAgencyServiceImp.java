@@ -17,23 +17,38 @@ public class CertificateAgencyServiceImp implements CertificateAgencyService {
 	
 	
 	public CertificateAgency getById(String id){
+		
 		return certificateAgencyRepo.findById(id).get();
 	}
 	
 	public String saveAgency(CertificateAgency a) {
+		if(certificateAgencyRepo.existsById(a.get_id()))
+		{
+			return "Certificate id allready exists";
+		}
 		certificateAgencyRepo.save(a);
 		return "Agency saved Successfully id: "+a.get_id();
 	}
 	
-	public void updateAgency(CertificateAgency a) {
+	public String updateAgency(CertificateAgency a) {
+		if(!certificateAgencyRepo.existsById(a.get_id()))
+		{
+			return "Certificate id doesn't exists";
+		}
 		certificateAgencyRepo.save(a);
+		return "Updated successfully";
 	}
 	
-	public void deleteAgency(String id) {
+	public String deleteAgency(String id) {
+		if(!certificateAgencyRepo.existsById(id))
+		{
+			return "Certificate id doesn't exists";
+		}
 		certificateAgencyRepo.deleteById(id);
+		return "Deleted successfully";
 	}
 	
-	@Override
+@Override
 	public List<CertificateAgency> getAllAgency() {
 		return certificateAgencyRepo.findAll();
 	}

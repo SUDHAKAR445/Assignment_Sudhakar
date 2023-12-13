@@ -21,11 +21,11 @@ public interface AccountService
 	
 	String saveAccount(Account a);
 	
-	void updateAccount(Account a);
+	String updateAccount(Account a);
 	
-	void deleteAccount(String id);
+	String deleteAccount(String id);
 
-    void updateAccountName(String id, String newName);
+    String updateAccountName(String id, String newName);
 	
 	//void accountNameChange(String oldName, String newName);
 }

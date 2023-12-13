@@ -2,6 +2,7 @@ package com.trustrace.assignment.scm.model;
 
 import java.util.Date;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -20,7 +21,7 @@ public class OrderDetails {
 	private Date orderDate;
 	
 	@Field("customerID")
-	private String customerID;
+	private ObjectId customerID;
 	
 	@Field("paymentStatus")
 	private String paymentStatus;
@@ -29,6 +30,6 @@ public class OrderDetails {
 	private String deliveryStatus;
 	
 	@Field("transactionID")
-	private String transactionID;
+	private ObjectId transactionID;
 	
 }

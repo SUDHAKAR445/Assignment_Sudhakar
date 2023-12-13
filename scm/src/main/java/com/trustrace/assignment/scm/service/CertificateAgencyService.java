@@ -13,8 +13,8 @@ public interface CertificateAgencyService
 	
 	String saveAgency(CertificateAgency a);
 	
-	void updateAgency(CertificateAgency a);
+	String updateAgency(CertificateAgency a);
 	
-	void deleteAgency(String _id);
+	String deleteAgency(String _id);
 	
 }
