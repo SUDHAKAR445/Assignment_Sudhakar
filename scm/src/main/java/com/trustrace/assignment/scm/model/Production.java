@@ -2,8 +2,8 @@ package com.trustrace.assignment.scm.model;
 
 import java.util.Date;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
@@ -17,6 +17,9 @@ public class Production {
     @Id
     private String _id;
 
+    @Field("productionID")
+    private String productionID;
+    
     @Field("product")
     private String product;
 
@@ -24,7 +27,8 @@ public class Production {
     private String quantityProduced;
 
     @Field("buyerID")
-    private ObjectId buyerID;
+    @DocumentReference(collection = "account")
+    private Account buyerID;
 
     @Field("timestamp")
     private Date timestamp;

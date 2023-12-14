@@ -20,16 +20,30 @@ public class RawMaterialServiceImp implements RawMaterialService{
 	}
 	
 	public String saveRawMaterial(RawMaterial a) {
+		if(rawMaterialRepo.existsById(a.get_id()))
+		{
+			return "RawMaterial id allready exists";
+		}
 		rawMaterialRepo.save(a);
-		return "Transaction saved Successfully id: ";
+		return "RawMaterial saved Successfully id: ";
 	}
 	
-	public void updateRawMaterial(RawMaterial a) {
+	public String updateRawMaterial(RawMaterial a) {
+		if(!rawMaterialRepo.existsById(a.get_id()))
+		{
+			return "Rawmaterial id doesn't exists";
+		}
 		rawMaterialRepo.save(a);
+		return "RawMaterial updated successfully";
 	}
 	
-	public void deleteRawMaterial(String id) {
+	public String deleteRawMaterial(String id) {
+		if(!rawMaterialRepo.existsById(id))
+		{
+			return "RawMaterial id doesn't exists";
+		}
 		rawMaterialRepo.deleteById(id);
+		return "RawMaterial deleted successfully";
 	}
 	
 	@Override

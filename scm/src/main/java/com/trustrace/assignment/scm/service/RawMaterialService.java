@@ -12,7 +12,7 @@ public interface RawMaterialService
 	
 	String saveRawMaterial(RawMaterial a);
 	
-	void updateRawMaterial(RawMaterial a);
+	String updateRawMaterial(RawMaterial a);
 	
-	void deleteRawMaterial(String id);
+	String deleteRawMaterial(String id);
 }

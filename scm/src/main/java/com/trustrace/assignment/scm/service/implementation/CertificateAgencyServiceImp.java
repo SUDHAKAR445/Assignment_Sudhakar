@@ -52,5 +52,4 @@ public class CertificateAgencyServiceImp implements CertificateAgencyService {
 	public List<CertificateAgency> getAllAgency() {
 		return certificateAgencyRepo.findAll();
 	}
-	
 }

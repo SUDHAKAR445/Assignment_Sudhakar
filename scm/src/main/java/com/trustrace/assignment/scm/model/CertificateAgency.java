@@ -17,6 +17,9 @@ public class CertificateAgency {
 	@Id
 	private String _id;
 	
+	@Field("agencyid")
+	private String agencyid;
+
 	@Field("name")
 	private String name;
 	

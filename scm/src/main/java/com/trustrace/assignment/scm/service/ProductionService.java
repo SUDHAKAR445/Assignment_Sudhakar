@@ -11,7 +11,7 @@ public interface ProductionService {
 	
 	String saveProduction(Production a);
 	
-	void updateProduction(Production a);
+	String updateProduction(Production a);
 	
-	void deleteProduction(String id);
+	String deleteProduction(String id);
 }

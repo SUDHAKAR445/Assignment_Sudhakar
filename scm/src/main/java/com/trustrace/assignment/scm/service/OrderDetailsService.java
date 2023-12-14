@@ -11,7 +11,7 @@ public interface OrderDetailsService {
 	
 	String saveOrder(OrderDetails a);
 	
-	void updateOrder(OrderDetails a);
+	String updateOrder(OrderDetails a);
 	
-	void deleteOrder(String id);
+	String deleteOrder(String id);
 }

@@ -2,6 +2,8 @@ package com.trustrace.assignment.scm.controller;
 
 import java.util.List;
 
+import javax.net.ssl.HttpsURLConnection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,31 +29,58 @@ public class OrderDetailsController {
 	@GetMapping("/getallorder")
 	public ResponseEntity<List<OrderDetails>> readAllOrder()
 	{
-		return new ResponseEntity<List<OrderDetails>>(orderDetailsService.getAllOrder(),HttpStatus.OK);
+		try{
+			return new ResponseEntity<List<OrderDetails>>(orderDetailsService.getAllOrder(),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@GetMapping("/select/orderbyid/{id}")
-	public OrderDetails getById(@PathVariable("id") String id){
-		return orderDetailsService.getById(id);
-		
+	public ResponseEntity<OrderDetails> getById(@PathVariable("id") String id){
+		try{
+			return new ResponseEntity<>(orderDetailsService.getById(id),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@PostMapping("/save")
 	public ResponseEntity<String> createAccount(@RequestBody OrderDetails a)
 	{
-		return new ResponseEntity<String>(orderDetailsService.saveOrder(a),HttpStatus.OK);
+		try{
+			return new ResponseEntity<String>(orderDetailsService.saveOrder(a),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@PutMapping("/update")
-	public String update(@RequestBody OrderDetails a) {
-		orderDetailsService.updateOrder(a);
-		return "Updated Successfully";
+	public ResponseEntity<String> update(@RequestBody OrderDetails a) {
+		try{
+			return new ResponseEntity<>(orderDetailsService.updateOrder(a),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@DeleteMapping("/delete/orderbyid/{id}")
-	public String delete(@PathVariable("id") String id) {
-		orderDetailsService.deleteOrder(id);
-		return "Deleted Successfully";
+	public ResponseEntity<String> delete(@PathVariable("id") String id) {
+		try{
+			return new ResponseEntity<>(orderDetailsService.deleteOrder(id),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 }

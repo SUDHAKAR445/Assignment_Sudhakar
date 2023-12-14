@@ -6,13 +6,13 @@ import com.trustrace.assignment.scm.model.CertificateDetails;
 
 public interface CertificateDetailsService {
 	
-	List<CertificateDetails> getAllData();
+	List<CertificateDetails> getAllCertificate();
 	
 	CertificateDetails getById(String _id);
 	
-	String saveData(CertificateDetails a);
+	String saveCertificate(CertificateDetails a);
 	
-	void update(CertificateDetails a);
+	String updateCertificate(CertificateDetails a);
 	
-	void delete(String _id);
+	String deleteCertificate(String _id);
 }

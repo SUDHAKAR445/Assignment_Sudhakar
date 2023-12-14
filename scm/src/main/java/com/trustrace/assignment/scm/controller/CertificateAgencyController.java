@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,31 +28,59 @@ public class CertificateAgencyController {
 	@GetMapping("/getallagency")
 	public ResponseEntity<List<CertificateAgency>> readAllAgency()
 	{
-		return new ResponseEntity<List<CertificateAgency>>(certificateAgencyService.getAllAgency(),HttpStatus.OK);
+		try{
+			return new ResponseEntity<List<CertificateAgency>>(certificateAgencyService.getAllAgency(),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@GetMapping("/select/agencybyid/{id}")
-	public CertificateAgency getById(@PathVariable("id") String id){
-		return certificateAgencyService.getById(id);
+	public ResponseEntity<CertificateAgency> getById(@PathVariable("id") String id){
+		try{
+			return new ResponseEntity<CertificateAgency>(certificateAgencyService.getById(id),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
 		
 	}
 	
 	@PostMapping("/save")
 	public ResponseEntity<String> createAgency(@RequestBody CertificateAgency account)
 	{
-		return new ResponseEntity<String>(certificateAgencyService.saveAgency(account),HttpStatus.OK);
+		try{
+			return new ResponseEntity<String>(certificateAgencyService.saveAgency(account),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@PutMapping("/update")
-	public String update(@RequestBody CertificateAgency a) {
-		certificateAgencyService.updateAgency(a);
-		return "Updated Successfully";
+	public ResponseEntity<String> update(@RequestBody CertificateAgency a) {
+		try{
+			return new ResponseEntity<>(certificateAgencyService.updateAgency(a),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@DeleteMapping("/delete/agencybyid/{id}")
-	public String delete(@PathVariable("id") String id) {
-		certificateAgencyService.deleteAgency(id);
-		return "Deleted Successfully";
+	public ResponseEntity<String> delete(@PathVariable("id") String id) {
+		try{
+			return new ResponseEntity<>(certificateAgencyService.deleteAgency(id),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 }

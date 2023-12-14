@@ -21,16 +21,30 @@ public class TransactionServiceImp implements TransactionService
 	}
 	
 	public String saveTransaction(Transaction a) {
+		if(transactionRepo.existsById(a.get_id()))
+		{
+			return "Transaction id allready exists";
+		}
 		transactionRepo.save(a);
 		return "Transcation saved Successfully id: ";
 	}
 	
-	public void updateTransaction(Transaction a) {
+	public String updateTransaction(Transaction a) {
+		if(!transactionRepo.existsById(a.get_id()))
+		{
+			return "Transaction id doesn't exists";
+		}
 		transactionRepo.save(a);
+		return "Transaction updated successfully";
 	}
 	
-	public void deleteTransaction(String id) {
+	public String deleteTransaction(String id) {
+		if(!transactionRepo.existsById(id))
+		{
+			return "Transaction id doesn't exists";
+		}
 		transactionRepo.deleteById(id);
+		return "Transaction deleted successfully";
 	}
 	
 	@Override

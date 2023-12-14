@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,31 +28,58 @@ public class TransactionController {
 	@GetMapping("/getalltransaction")
 	public ResponseEntity<List<Transaction>> readAllTransaction()
 	{
-		return new ResponseEntity<List<Transaction>>(transactionService.getAllTransaction(),HttpStatus.OK);
+		try{
+			return new ResponseEntity<List<Transaction>>(transactionService.getAllTransaction(),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@GetMapping("/select/transactionbyid/{id}")
-	public Transaction getById(@PathVariable("id") String id){
-		return transactionService.getById(id);
-		
+	public ResponseEntity<Transaction> getById(@PathVariable("id") String id){
+		try{
+			return new ResponseEntity<>(transactionService.getById(id),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@PostMapping("/save")
 	public ResponseEntity<String> createTransaction(@RequestBody Transaction a)
 	{
-		return new ResponseEntity<String>(transactionService.saveTransaction(a),HttpStatus.OK);
+		try{
+			return new ResponseEntity<String>(transactionService.saveTransaction(a),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@PutMapping("/update")
-	public String update(@RequestBody Transaction a) {
-		transactionService.updateTransaction(a);
-		return "Updated Successfully";
+	public ResponseEntity<String> update(@RequestBody Transaction a) {
+		try{
+			return new ResponseEntity<>(transactionService.updateTransaction(a),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@DeleteMapping("/delete/agencybyid/{id}")
-	public String delete(@PathVariable("id") String id) {
-		transactionService.deleteTransaction(id);
-		return "Deleted Successfully";
+	public ResponseEntity<String> delete(@PathVariable("id") String id) {
+		try{
+			return new ResponseEntity<>(transactionService.deleteTransaction(id),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 }

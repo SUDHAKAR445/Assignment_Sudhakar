@@ -1,9 +1,10 @@
 package com.trustrace.assignment.scm.model;
 import java.util.Date;
+import java.util.function.Supplier;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
@@ -18,11 +19,15 @@ public class RawMaterial {
     @Id
     private String _id;
 
+    @Field("rawmaterialID")
+    private String rawmaterialID;
+    
     @Field("name")
     private String name;
 
     @Field("supplierID")
-    private ObjectId supplierID;
+    @DocumentReference(collection = "account")
+    private Account supplierID;
 
     @Field("quantity")
     private String quantity;

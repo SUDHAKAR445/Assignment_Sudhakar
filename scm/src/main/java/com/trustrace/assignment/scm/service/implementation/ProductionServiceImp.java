@@ -20,16 +20,30 @@ public class ProductionServiceImp implements ProductionService {
 	}
 	
 	public String saveProduction(Production a) {
+		if(productionRepo.existsById(a.get_id()))
+		{
+			return "Production id allready exists";
+		}
 		productionRepo.save(a);
 		return "Production saved Successfully id: "+a.get_id();
 	}
 	
-	public void updateProduction(Production a) {
+	public String updateProduction(Production a) {
+		if(!productionRepo.existsById(a.get_id()))
+		{
+			return "Production id doesn't exists";
+		}
 		productionRepo.save(a);
+		return "Production updated successfully";
 	}
 	
-	public void deleteProduction(String id) {
+	public String deleteProduction(String id) {
+		if(!productionRepo.existsById(id))
+		{
+			return "Production id doesn't exists";
+		}
 		productionRepo.deleteById(id);
+		return "Production deleted successfully";
 	}
 	
 	public List<Production> getAllProduction() {

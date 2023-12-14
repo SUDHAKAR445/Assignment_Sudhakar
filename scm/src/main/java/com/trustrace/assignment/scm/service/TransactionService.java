@@ -11,7 +11,7 @@ public interface TransactionService {
 	
 	String saveTransaction(Transaction a);
 	
-	void updateTransaction(Transaction a);
+	String updateTransaction(Transaction a);
 	
-	void deleteTransaction(String id);
+	String deleteTransaction(String id);
 }

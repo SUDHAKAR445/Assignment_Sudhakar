@@ -17,7 +17,7 @@ public class CertificateDetailsServiceImp implements CertificateDetailsService{
 	CertificateDetailsRepository certificateDetailsRepo;
 	
 	
-	public List<CertificateDetails> getAllData(){
+	public List<CertificateDetails> getAllCertificate(){
 		List<CertificateDetails> list = new ArrayList<>();
 		list = certificateDetailsRepo.findAll();
 		return list;
@@ -27,17 +27,32 @@ public class CertificateDetailsServiceImp implements CertificateDetailsService{
 		return certificateDetailsRepo.findById(id).get();
 	}
 	
-	public String saveData(CertificateDetails a) {
+	public String saveCertificate(CertificateDetails a) {
+		if(certificateDetailsRepo.existsById(a.get_id()))
+		{
+			return "Certificate id allready exists";
+		}
 		certificateDetailsRepo.save(a);
 		return "Certificate saved Successfully id: ";
 	}
 	
-	public void update(CertificateDetails a) {
+	public String updateCertificate(CertificateDetails a) {
+		if(!certificateDetailsRepo.existsById(a.get_id()))
+		{
+			return "Certificate id doesn't exists";
+		}
 		certificateDetailsRepo.save(a);
+		return "Certificate updated successfully";
 	}
 	
-	public void delete(String id) {
+	public String deleteCertificate(String id) {
+		if(!certificateDetailsRepo.existsById(id))
+		{
+			return "Certificate id doesn't exists";
+		}
 		certificateDetailsRepo.deleteById(id);
+		return "Certficate deleted successfully";
 	}
+
 	
 }

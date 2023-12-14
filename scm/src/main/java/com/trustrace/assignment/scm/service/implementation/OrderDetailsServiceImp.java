@@ -20,16 +20,30 @@ public class OrderDetailsServiceImp implements OrderDetailsService{
 	}
 	
 	public String saveOrder(OrderDetails a) {
+		if(orderDetailsRepo.existsById(a.get_id()))
+		{
+			return "Order id allready exists";
+		}
 		orderDetailsRepo.save(a);
 		return "Order saved Successfully id: "+a.get_id();
 	}
 	
-	public void updateOrder(OrderDetails a) {
+	public String updateOrder(OrderDetails a) {
+		if(!orderDetailsRepo.existsById(a.get_id()))
+		{
+			return "Order id doesn't exists";
+		}
 		orderDetailsRepo.save(a);
+		return "Order updated successfully";
 	}
 	
-	public void deleteOrder(String id) {
+	public String deleteOrder(String id) {
+		if(!orderDetailsRepo.existsById(id))
+		{
+			return "Order id doesn't exists";
+		}
 		orderDetailsRepo.deleteById(id);
+		return "Order deleted successfully";
 	}
 	
 	@Override

@@ -27,31 +27,57 @@ public class RawMaterialController {
 	@GetMapping("/getallrawmaterial")
 	public ResponseEntity<List<RawMaterial>> readAllRawMaterial()
 	{
-		return new ResponseEntity<List<RawMaterial>>(rawMaterialService.getAllRawMaterial(),HttpStatus.OK);
+		try{
+			return new ResponseEntity<List<RawMaterial>>(rawMaterialService.getAllRawMaterial(),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@GetMapping("/select/rawMaterialbyid/{id}")
-	public RawMaterial getById(@PathVariable("id") String id){
-		return rawMaterialService.getById(id);
-		
+	public ResponseEntity<RawMaterial> getById(@PathVariable("id") String id){
+		try{
+			return new ResponseEntity<>(rawMaterialService.getById(id),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return  new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@PostMapping("/save")
 	public ResponseEntity<String> createRawMaterial(@RequestBody RawMaterial a)
 	{
-		return new ResponseEntity<String>(rawMaterialService.saveRawMaterial(a),HttpStatus.OK);
+		try{
+			return new ResponseEntity<String>(rawMaterialService.saveRawMaterial(a),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@PutMapping("/update")
-	public String update(@RequestBody RawMaterial a) {
-		rawMaterialService.updateRawMaterial(a);
-		return "Updated Successfully";
+	public ResponseEntity<String> update(@RequestBody RawMaterial a) {
+		try{
+			return new ResponseEntity<>(rawMaterialService.updateRawMaterial(a),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@DeleteMapping("/delete/agencybyid/{id}")
-	public String delete(@PathVariable("id") String id) {
-		rawMaterialService.deleteRawMaterial(id);
-		return "Deleted Successfully";
+	public ResponseEntity<String> delete(@PathVariable("id") String id) {
+		try{
+			return new ResponseEntity<>(rawMaterialService.deleteRawMaterial(id),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
+		}
 	}
-	
 }

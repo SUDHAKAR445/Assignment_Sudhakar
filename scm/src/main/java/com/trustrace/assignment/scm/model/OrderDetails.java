@@ -2,8 +2,8 @@ package com.trustrace.assignment.scm.model;
 
 import java.util.Date;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
@@ -17,11 +17,15 @@ public class OrderDetails {
 	@Id
 	private String _id;
 	
+	@Field("orderID")
+	private String orderID;
+	
 	@Field("orderDate")
 	private Date orderDate;
 	
 	@Field("customerID")
-	private ObjectId customerID;
+	@DocumentReference(collection = "account")
+	private Account customerID;
 	
 	@Field("paymentStatus")
 	private String paymentStatus;
@@ -29,7 +33,8 @@ public class OrderDetails {
 	@Field("deliveryStatus")
 	private String deliveryStatus;
 	
+	@DocumentReference(collection = "transaction")
 	@Field("transactionID")
-	private ObjectId transactionID;
+	private Transaction transactionID;
 	
 }
