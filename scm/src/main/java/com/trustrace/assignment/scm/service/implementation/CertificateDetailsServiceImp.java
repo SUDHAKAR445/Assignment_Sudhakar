@@ -1,11 +1,11 @@
 package com.trustrace.assignment.scm.service.implementation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.trustrace.assignment.scm.model.CertificateAgency;
 import com.trustrace.assignment.scm.model.CertificateDetails;
 import com.trustrace.assignment.scm.repository.CertificateDetailsRepository;
 import com.trustrace.assignment.scm.service.CertificateDetailsService;
@@ -18,40 +18,53 @@ public class CertificateDetailsServiceImp implements CertificateDetailsService{
 	
 	
 	public List<CertificateDetails> getAllCertificate(){
-		List<CertificateDetails> list = new ArrayList<>();
-		list = certificateDetailsRepo.findAll();
-		return list;
+		return certificateDetailsRepo.findAll();
 	}
 	
 	public CertificateDetails getById(String id){
-		return certificateDetailsRepo.findById(id).get();
+		CertificateDetails _id = certificateDetailsRepo.findByCertificateID(id);
+		return certificateDetailsRepo.findById(_id.get_id()).get();
 	}
 	
 	public String saveCertificate(CertificateDetails a) {
-		if(certificateDetailsRepo.existsById(a.get_id()))
+		CertificateDetails id = certificateDetailsRepo.findByCertificateID(a.getCertificateID());
+		if(id==null)
 		{
-			return "Certificate id allready exists";
+			// String _i = a.getAgencyID().getAgencyid();
+			// String o_i = certificateDetailsRepo.findByAgencyid(o_id)
+			certificateDetailsRepo.save(a);
+			return "Certificate details saved successfully : ";
+	    }
+		else
+		{
+			return "Certificate details already exists";
 		}
-		certificateDetailsRepo.save(a);
-		return "Certificate saved Successfully id: ";
 	}
 	
 	public String updateCertificate(CertificateDetails a) {
-		if(!certificateDetailsRepo.existsById(a.get_id()))
+		CertificateDetails id = certificateDetailsRepo.findByCertificateID(a.getCertificateID());
+		if(id!=null)
 		{
-			return "Certificate id doesn't exists";
+			certificateDetailsRepo.save(a);
+			return "Certificate details updated successfully : "+id.get_id();
+	    }
+		else
+		{
+			return "Certififcate Details doesn't exists";
 		}
-		certificateDetailsRepo.save(a);
-		return "Certificate updated successfully";
 	}
 	
 	public String deleteCertificate(String id) {
-		if(!certificateDetailsRepo.existsById(id))
+		CertificateDetails _id = certificateDetailsRepo.findByCertificateID(id);
+		if(id!=null)
 		{
-			return "Certificate id doesn't exists";
+			certificateDetailsRepo.deleteById(_id.get_id());
+			return "CertificSate details deleted successfully : "+_id.get_id();
+	    }
+		else
+		{
+			return "Certififcate Details doesn't exists";
 		}
-		certificateDetailsRepo.deleteById(id);
-		return "Certficate deleted successfully";
 	}
 
 	

@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection="certificateAgency")
+@Builder
 public class CertificateAgency {
 	
 	@Id
@@ -30,5 +32,10 @@ public class CertificateAgency {
 	private String emailId;
 	
 	@Field("phone")
-	private long phone;
+	private String phone;
+
+    public Object map(Object object) {
+        return null;
+    }
+
 }

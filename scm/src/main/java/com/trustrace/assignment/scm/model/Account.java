@@ -1,10 +1,10 @@
 package com.trustrace.assignment.scm.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Document(collection="account")
 public class Account{
+	
 	public static final String HttpStatus = null;
 
 	@Id
@@ -43,27 +44,27 @@ public class Account{
 	private String countryOrigin;
 	
 	@Field("certifictaions")
-	@DocumentReference(collection = "certificateDetails")
-	private ArrayList<CertificateDetails> certifications;
+	// @DocumentReference(collection = "certificateDetails")
+	private List<String> certifications;
 	
 	@Field("contact")
 	private Supp contact;
 	
 	@Field("supplier")
-	@DocumentReference(collection = "supplier")
-	private ArrayList<String> supplier;
+	//@DocumentReference(collection = "supplier")
+	private List<String> supplier;
 	
 	@Field("brand")
-	@DocumentReference(collection = "account")
-	private ArrayList<Account> brand;
+	//@DocumentReference(collection = "account")
+	private List<String> brand;
 	
 	@Field("productCategories")
-	private ArrayList<String> productCategories;	
+	private List<String> productCategories;	
 		
 	@Data	 
 	@AllArgsConstructor
 	@NoArgsConstructor
-	class Supp
+	public static class Supp
 	{
 		String street;
 		String city;

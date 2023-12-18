@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection="CertificateDetails")
+@Document(collection="certificateDetails")
 public class CertificateDetails 
 {
 	@Id
@@ -24,7 +24,7 @@ public class CertificateDetails
 	@Field("certificateID")
 	private String certificateID;
 	
-	@Field("agencyID")
+	@Field("agencyid")
 	@DocumentReference(collection = "certificateAgency")
 	private CertificateAgency agencyID;
 	

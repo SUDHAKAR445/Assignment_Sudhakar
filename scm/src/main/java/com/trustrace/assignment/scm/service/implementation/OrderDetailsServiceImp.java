@@ -20,30 +20,42 @@ public class OrderDetailsServiceImp implements OrderDetailsService{
 	}
 	
 	public String saveOrder(OrderDetails a) {
-		if(orderDetailsRepo.existsById(a.get_id()))
+		OrderDetails id = orderDetailsRepo.findByOrderID(a.getOrderID());
+		if(id==null)
 		{
-			return "Order id allready exists";
+			orderDetailsRepo.save(a);
+			return "OrderDetails saved successfully : "+a.get_id();
+	    }
+		else
+		{
+			return "OrderDetails already exists";
 		}
-		orderDetailsRepo.save(a);
-		return "Order saved Successfully id: "+a.get_id();
 	}
 	
 	public String updateOrder(OrderDetails a) {
-		if(!orderDetailsRepo.existsById(a.get_id()))
+		OrderDetails id = orderDetailsRepo.findByOrderID(a.getOrderID());
+		if(id!=null)
 		{
-			return "Order id doesn't exists";
+			orderDetailsRepo.save(a);
+			return "OrderDetails Updated successfully : "+id.get_id();
+	    }
+		else
+		{
+			return "OrderDetails doesn't exists";
 		}
-		orderDetailsRepo.save(a);
-		return "Order updated successfully";
 	}
 	
 	public String deleteOrder(String id) {
-		if(!orderDetailsRepo.existsById(id))
+		OrderDetails _id = orderDetailsRepo.findByOrderID(id);
+		if(_id!=null)
 		{
-			return "Order id doesn't exists";
+			orderDetailsRepo.deleteById(_id.get_id());
+			return "OrderDetails deleted successfully : "+_id.get_id();
+	    }
+		else
+		{
+			return "OrderDetails doesn't exists";
 		}
-		orderDetailsRepo.deleteById(id);
-		return "Order deleted successfully";
 	}
 	
 	@Override

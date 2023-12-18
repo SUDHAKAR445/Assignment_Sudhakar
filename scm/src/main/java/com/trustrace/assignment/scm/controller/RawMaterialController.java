@@ -36,7 +36,7 @@ public class RawMaterialController {
 		}
 	}
 	
-	@GetMapping("/select/rawMaterialbyid/{id}")
+	@GetMapping("/select/rawmaterialbyid/{id}")
 	public ResponseEntity<RawMaterial> getById(@PathVariable("id") String id){
 		try{
 			return new ResponseEntity<>(rawMaterialService.getById(id),HttpStatus.OK);
@@ -70,7 +70,7 @@ public class RawMaterialController {
 		}
 	}
 	
-	@DeleteMapping("/delete/agencybyid/{id}")
+	@DeleteMapping("/delete/rawmaterialbyid/{id}")
 	public ResponseEntity<String> delete(@PathVariable("id") String id) {
 		try{
 			return new ResponseEntity<>(rawMaterialService.deleteRawMaterial(id),HttpStatus.OK);

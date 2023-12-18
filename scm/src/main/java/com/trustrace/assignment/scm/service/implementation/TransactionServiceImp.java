@@ -17,34 +17,47 @@ public class TransactionServiceImp implements TransactionService
 	
 	
 	public Transaction getById(String id){
-		return transactionRepo.findById(id).get();
+		Transaction _id = transactionRepo.findByTransactionID(id);
+		return transactionRepo.findById(_id.get_id()).get();
 	}
 	
 	public String saveTransaction(Transaction a) {
-		if(transactionRepo.existsById(a.get_id()))
+		Transaction id = transactionRepo.findByTransactionID(a.getTransactionID());
+		if(id==null)
 		{
-			return "Transaction id allready exists";
+			transactionRepo.save(a);
+			return "Transaction saved successfully : "+a.get_id();
+	    }
+		else
+		{
+			return "Transaction already exists : "+id.get_id();
 		}
-		transactionRepo.save(a);
-		return "Transcation saved Successfully id: ";
 	}
 	
 	public String updateTransaction(Transaction a) {
-		if(!transactionRepo.existsById(a.get_id()))
+		Transaction id = transactionRepo.findByTransactionID(a.getTransactionID());
+		if(id!=null)
 		{
-			return "Transaction id doesn't exists";
+			transactionRepo.save(a);
+			return "Transaction updated successfully : "+a.get_id();
+	    }
+		else
+		{
+			return "Transaction doesn't exists";
 		}
-		transactionRepo.save(a);
-		return "Transaction updated successfully";
 	}
 	
 	public String deleteTransaction(String id) {
-		if(!transactionRepo.existsById(id))
+		Transaction _id = transactionRepo.findByTransactionID(id);
+		if(id!=null)
 		{
-			return "Transaction id doesn't exists";
+			transactionRepo.deleteById(_id.get_id());
+			return "Transaction deleted successfully : "+_id.get_id();
+	    }
+		else
+		{
+			return "Transaction doesn't exists";
 		}
-		transactionRepo.deleteById(id);
-		return "Transaction deleted successfully";
 	}
 	
 	@Override

@@ -26,34 +26,47 @@ public class AccountServiceImp implements AccountService{
 //	}
 	
 	public Account getById(String id){
-		return accountRepo.findById(id).get();
+		Account _id = accountRepo.findByBrandid(id);
+		return accountRepo.findById(_id.get_id()).get();
 	}
 	
 	public String saveAccount(Account a) {
-		if(accountRepo.existsById(a.get_id()))
+		Account id = accountRepo.findByBrandid(a.getBrandid());
+		if(id==null)
 		{
-			return "Account id allready exists";
+			accountRepo.save(a);
+			return "Account saved successfully : "+a.get_id();
+	    }
+		else
+		{
+			return "Account already exists";
 		}
-		accountRepo.save(a);
-		return "Account saved Successfully id: "+ a.get_id();
 	}
 	
 	public String updateAccount(Account a) {
-		if(!accountRepo.existsById(a.get_id()))
+		Account id = accountRepo.findByBrandid(a.getBrandid());
+		if(id!=null)
 		{
-			return "Account id doesn't exists";
+			accountRepo.save(a);
+			return "Account updated successfully : "+id.get_id();
+	    }
+		else
+		{
+			return "Account doesn't exists";
 		}
-		accountRepo.save(a);
-		return "Account updated successfully";
 	}
 	
 	public String deleteAccount(String id) {
-		if(!accountRepo.existsById(id))
+		Account _id = accountRepo.findByBrandid(id);
+		if(_id!=null)
 		{
-			return "Account id doesn't exists";
+			accountRepo.deleteById(id);
+			return "Account deleted successfully : "+_id.get_id();
+	    }
+		else
+		{
+			return "Account doesn't exists";
 		}
-		accountRepo.deleteById(id);
-		return "Account deleted successfully";
 	}
 	
 	public List<Account> getAllAccount() {
@@ -62,12 +75,16 @@ public class AccountServiceImp implements AccountService{
 
 	public String updateAccountName(String id,String newName) 
 	{
-		if(!accountRepo.existsById(id))
+		Account _id = accountRepo.findByBrandid(id);
+		if(id!=null)
 		{
-			return "Account id doesn't exists";
+			dao.updateAccountName(_id.get_id(), newName);
+			return "Account name changed successfully : "+_id.get_id();
+	    }
+		else
+		{
+			return "Account doesn't exists";
 		}
-		dao.updateAccountName(id, newName);
-		return "Account name changed Successfully";
 	}
 //	public void accountNameChange(String oldName, String newName) {
 //		dao.accountNameChange(oldName, newName);

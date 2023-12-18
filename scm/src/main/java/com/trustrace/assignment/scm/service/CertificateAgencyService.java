@@ -1,6 +1,8 @@
 package com.trustrace.assignment.scm.service;
 
 import java.util.List;
+import java.util.Optional;
+
 
 import com.trustrace.assignment.scm.model.CertificateAgency;
 
@@ -9,12 +11,12 @@ public interface CertificateAgencyService
 	
 	List<CertificateAgency> getAllAgency();
 	
-	CertificateAgency getById(String _id);
+	Optional<CertificateAgency> getById(String _id);
 	
-	String saveAgency(CertificateAgency a);
+	CertificateAgency saveAgency(CertificateAgency a );
 	
-	String updateAgency(CertificateAgency a);
+	CertificateAgency updateAgency(CertificateAgency a);
 	
-	String deleteAgency(String _id);
+	void deleteAgency(String _id);
 	
 }

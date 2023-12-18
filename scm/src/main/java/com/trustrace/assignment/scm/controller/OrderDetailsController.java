@@ -2,7 +2,6 @@ package com.trustrace.assignment.scm.controller;
 
 import java.util.List;
 
-import javax.net.ssl.HttpsURLConnection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

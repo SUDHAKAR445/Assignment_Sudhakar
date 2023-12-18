@@ -16,34 +16,54 @@ public class RawMaterialServiceImp implements RawMaterialService{
 	
 	
 	public RawMaterial getById(String id){
-		return rawMaterialRepo.findById(id).get();
+		RawMaterial _id = rawMaterialRepo.findByRawMaterialID(id);
+		if(_id!=null)
+		{
+		    return rawMaterialRepo.findById(_id.get_id()).get();
+		}
+		else
+		{
+			return null;
+		}
 	}
 	
 	public String saveRawMaterial(RawMaterial a) {
-		if(rawMaterialRepo.existsById(a.get_id()))
+		RawMaterial id = rawMaterialRepo.findByRawMaterialID(a.getRawMaterialID());
+		if(id==null)
 		{
-			return "RawMaterial id allready exists";
+			rawMaterialRepo.save(a);
+			return "RawMaterial saved successfully : "+a.get_id();
+	    }
+		else
+		{
+			return "RawMaterial already exists : "+id.get_id();
 		}
-		rawMaterialRepo.save(a);
-		return "RawMaterial saved Successfully id: ";
 	}
 	
 	public String updateRawMaterial(RawMaterial a) {
-		if(!rawMaterialRepo.existsById(a.get_id()))
+		RawMaterial id = rawMaterialRepo.findByRawMaterialID(a.getRawMaterialID());
+		if(id!=null)
 		{
-			return "Rawmaterial id doesn't exists";
+			rawMaterialRepo.save(a);
+			return "RawMaterial Updated successfully : "+a.get_id();
+	    }
+		else
+		{
+			return "RawMaterial doesn't exists ";
 		}
-		rawMaterialRepo.save(a);
-		return "RawMaterial updated successfully";
 	}
 	
 	public String deleteRawMaterial(String id) {
-		if(!rawMaterialRepo.existsById(id))
+		RawMaterial _id = rawMaterialRepo.findByRawMaterialID(id);
+		if(id!=null)
 		{
-			return "RawMaterial id doesn't exists";
+			rawMaterialRepo.deleteById(_id.get_id());;
+			return "RawMaterial Deleted successfully : "+_id.get_id();
+	    }
+		else
+		{
+			return "RawMaterial doesn't exists ";
 		}
-		rawMaterialRepo.deleteById(id);
-		return "RawMaterial deleted successfully";
 	}
 	
 	@Override
