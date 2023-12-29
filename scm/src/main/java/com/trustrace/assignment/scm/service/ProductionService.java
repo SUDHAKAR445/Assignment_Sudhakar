@@ -2,8 +2,6 @@ package com.trustrace.assignment.scm.service;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.web.multipart.MultipartFile;
 
 import com.trustrace.assignment.scm.model.Production;

@@ -54,13 +54,14 @@ public class AccountServiceImp implements AccountService{
 		{
 			return "Account doesn't exists";
 		}
+		return "Account doesn't exists";
 	}
 	
 	public String deleteAccount(String id) {
 		Account _id = accountRepo.findByBrandid(id);
 		if(_id!=null)
 		{
-			accountRepo.deleteById(id);
+			accountRepo.deleteById(_id.get_id());
 			return "Account deleted successfully : "+_id.get_id();
 	    }
 		else
@@ -76,7 +77,8 @@ public class AccountServiceImp implements AccountService{
 	public String updateAccountName(String id,String newName) 
 	{
 		Account _id = accountRepo.findByBrandid(id);
-		if(id!=null)
+		//return "Account name changed successfully : "+_id.get_id();
+		if(_id!=null)
 		{
 			dao.updateAccountName(_id.get_id(), newName);
 			return "Account name changed successfully : "+_id.get_id();
@@ -86,15 +88,10 @@ public class AccountServiceImp implements AccountService{
 			return "Account doesn't exists";
 		}
 	}
-//	public void accountNameChange(String oldName, String newName) {
-//		dao.accountNameChange(oldName, newName);
-//	}
-//	@Override
-//	public String saveProduct(Account account) {
-//		accountRepo.save(account);
-//		return "Account saved Successfully id: "+account.get_id();
-//	}
-//
+	// public void accountNameChange(String oldName, String newName) {
+	// 	dao.accountNameChange(oldName, newName);
+	// }
+
 	
 //
 //	@Override

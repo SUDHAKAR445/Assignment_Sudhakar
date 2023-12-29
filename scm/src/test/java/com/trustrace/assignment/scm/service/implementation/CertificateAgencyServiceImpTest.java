@@ -17,8 +17,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
-
 import com.trustrace.assignment.scm.exception.MyNotFoundException;
 import com.trustrace.assignment.scm.model.CertificateAgency;
 import com.trustrace.assignment.scm.repository.CertificateAgencyRepository;

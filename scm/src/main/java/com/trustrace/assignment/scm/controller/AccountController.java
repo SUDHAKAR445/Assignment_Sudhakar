@@ -24,14 +24,7 @@ import com.trustrace.assignment.scm.service.AccountService;
 public class AccountController 
 {
 	@Autowired
-	AccountService accountService;
-	
-	@GetMapping("/hello")
-	public String hello()
-	{
-		return "hello";
-	}
-	
+	AccountService accountService;	
 	
 	@GetMapping("/getallaccount")
 	public ResponseEntity<List<Account>> readAllAccount()
@@ -45,8 +38,8 @@ public class AccountController
 		}
 	}
 	
-	@GetMapping("/select/accountbyid/{id}")
-	public ResponseEntity<Account> getById(@PathVariable("id") String id){
+	@GetMapping("/select/{id}")
+	public ResponseEntity<Account> getById(@PathVariable String id){
 		try{
 		    return new ResponseEntity<>(accountService.getById(id),HttpStatus.OK);
 		}
@@ -59,9 +52,9 @@ public class AccountController
 	
 	@PostMapping("/save")
 	public ResponseEntity<String> createAccount(@RequestBody Account account)
-	{
+	{  
 		try{
-			return new ResponseEntity<String>(accountService.saveAccount(account),HttpStatus.OK);
+			return new ResponseEntity<String>(accountService.saveAccount(account),HttpStatus.CREATED);
 		}
 		catch(Exception e)
 		{
@@ -72,7 +65,7 @@ public class AccountController
 	@PutMapping("/update")
 	public ResponseEntity<String> update(@RequestBody Account a) {
 		try{
-			return new ResponseEntity<String>(accountService.updateAccount(a),HttpStatus.OK);
+			return new ResponseEntity<String>(accountService.updateAccount(a),HttpStatus.CREATED);
 		}
 		catch(Exception e)
 		{
@@ -98,5 +91,7 @@ public class AccountController
 		{
 			return new ResponseEntity<>("Internal Error",HttpStatus.BAD_REQUEST);
 		}
+		//return new ResponseEntity<String>(accountService.updateAccountName(id,newName),HttpStatus.OK);
 	}
+		
 }

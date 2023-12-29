@@ -3,16 +3,11 @@ package com.trustrace.assignment.scm.service.implementation;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.trustrace.assignment.scm.model.CertificateAgency;
 import com.trustrace.assignment.scm.model.Production;
 import com.trustrace.assignment.scm.repository.ProductionRepository;
 import com.trustrace.assignment.scm.service.ProductionService;
@@ -23,7 +18,7 @@ public class ProductionServiceImp implements ProductionService {
 	ProductionRepository productionRepo;
 	
 	
-	private final String FOLDER_PATH = "C:/Users/Sudhakar/java/scm/src/main/resources/images/";
+	private final String FOLDER_PATH = "/home/divya/Documents/scm/src/main/resources/images/";
 	private String imageUrlGenerator(MultipartFile file) throws IOException
 	{
 		String url = FOLDER_PATH + file.getOriginalFilename();
@@ -106,7 +101,6 @@ public class ProductionServiceImp implements ProductionService {
 				return "Production already exists";
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

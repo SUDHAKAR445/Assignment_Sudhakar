@@ -33,7 +33,6 @@ public class CertificateAgencyServiceImp implements CertificateAgencyService {
 			optionalAgency= certificateAgencyRepo.findById(saveAgency.get_id());
 			return optionalAgency;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return optionalAgency;
@@ -64,7 +63,8 @@ public class CertificateAgencyServiceImp implements CertificateAgencyService {
 		try {
 			if(c!=null)
 				certificateAgencyRepo.deleteById(c.get_id());
-		} catch (EmptyResultDataAccessException ex) {
+			
+		} catch (MyNotFoundException ex) {
 			throw new MyNotFoundException("Agency not found");
 		}
 	}

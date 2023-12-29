@@ -168,7 +168,7 @@ public class CertificateAgencyControllerTest
     @Test
     public void getAgencyByInvalidId() throws Exception{
         String agencyid = "97449";
-        CertificateAgency c = CertificateAgency.builder()
+        CertificateAgency.builder()
                 ._id("65464134694494")
                 .agencyid("AGY001")
                 .name("hbfdhu")

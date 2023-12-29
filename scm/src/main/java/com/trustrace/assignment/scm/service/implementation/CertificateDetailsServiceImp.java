@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.trustrace.assignment.scm.model.CertificateAgency;
 import com.trustrace.assignment.scm.model.CertificateDetails;
 import com.trustrace.assignment.scm.repository.CertificateDetailsRepository;
 import com.trustrace.assignment.scm.service.CertificateDetailsService;
