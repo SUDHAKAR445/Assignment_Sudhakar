@@ -1,6 +1,5 @@
 package com.trustrace.assignment.scm.controller;
 
-<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,8 +33,3 @@ public class LoginController {
     }
 
 }
-=======
-public class LoginController {
-    
-}
->>>>>>> 3f75474906d2c5a547c4a1d29d7bacc388616ab0

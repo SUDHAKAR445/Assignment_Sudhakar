@@ -58,15 +58,16 @@ public class CertificateAgencyServiceImp implements CertificateAgencyService {
 
 	@Override
 	public void deleteAgency(String _id) {
-		CertificateAgency c = certificateAgencyRepo.findByAgencyid(_id);
-		//Optional<CertificateAgency> optionalAgency = certificateAgencyRepo.findById(c.get_id());
-		try {
-			if(c!=null)
-				certificateAgencyRepo.deleteById(c.get_id());
+		throw new MyNotFoundException("Agency not found");
+		// CertificateAgency c = certificateAgencyRepo.findByAgencyid(_id);
+		// //Optional<CertificateAgency> optionalAgency = certificateAgencyRepo.findById(c.get_id());
+		// try {
+		// 	if(c!=null)
+		// 		certificateAgencyRepo.deleteById(c.get_id());
 			
-		} catch (MyNotFoundException ex) {
-			throw new MyNotFoundException("Agency not found");
-		}
+		// } catch (MyNotFoundException ex) {
+			
+		// }
 	}
 	
 // 	public CertificateAgency getById(String id){

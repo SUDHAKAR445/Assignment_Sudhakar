@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,13 +48,16 @@ public class CertificateAgencyController {
 	@DeleteMapping("{id}")
     public ResponseEntity<Void> deleteEmployee(@PathVariable("id") String id){
 
-        try {
+        
             certificateAgencyService.deleteAgency(id);
+			
             return ResponseEntity.ok().build();
-        } catch (MyNotFoundException ex) {
-            return ResponseEntity.notFound().build();
-        }
 
+    }
+	@ExceptionHandler(value = MyNotFoundException.class)
+	public ResponseEntity<?> catchException(MyNotFoundException handler)
+    {
+        return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
     }
 	//comment
 	// @PostMapping("/save")

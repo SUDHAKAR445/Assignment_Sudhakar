@@ -3,7 +3,6 @@ package com.trustrace.assignment.scm.model;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -25,13 +24,7 @@ public class Account{
 	private String _id;
 	
 	@Field("brandid")
-<<<<<<< HEAD
-	@Indexed
 	private String brandid;
-=======
-	@Indexed(unique = true)
-	private String 	brandid;
->>>>>>> 3f75474906d2c5a547c4a1d29d7bacc388616ab0
 
 	@Field("name")
 	private String name;

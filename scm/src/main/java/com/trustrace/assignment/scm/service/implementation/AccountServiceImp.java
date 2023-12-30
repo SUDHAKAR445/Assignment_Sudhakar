@@ -2,10 +2,13 @@ package com.trustrace.assignment.scm.service.implementation;
 
 import java.util.List;
 
+import javax.security.auth.login.AccountNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.trustrace.assignment.scm.dao.DaoService;
+import com.trustrace.assignment.scm.exception.MyNotFoundException;
 import com.trustrace.assignment.scm.model.Account;
 import com.trustrace.assignment.scm.service.AccountService;
 import com.trustrace.assignment.scm.repository.AccountRepository;
@@ -25,10 +28,17 @@ public class AccountServiceImp implements AccountService{
 //		return list;
 //	}
 	
-	public Account getById(String id){
-		Account _id = accountRepo.findByBrandid(id);
-		return accountRepo.findById(_id.get_id()).get();
-	}
+	// public Account getById(String id){
+	// 	Account _id = accountRepo.findByBrandid(id);
+	// 	return accountRepo.findById(_id.get_id()).get();
+
+	// }
+	 public Account getById(String accountId) {
+        // Use repository to fetch account by ID
+		Account _id = accountRepo.findByBrandid(accountId);
+        return accountRepo.findById(_id.get_id())
+                .orElseThrow(() -> new MyNotFoundException("Account not found for ID: " + accountId));
+    }
 	
 	public String saveAccount(Account a) {
 		Account id = accountRepo.findByBrandid(a.getBrandid());
@@ -54,7 +64,6 @@ public class AccountServiceImp implements AccountService{
 		{
 			return "Account doesn't exists";
 		}
-		return "Account doesn't exists";
 	}
 	
 	public String deleteAccount(String id) {

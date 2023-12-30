@@ -2,10 +2,13 @@ package com.trustrace.assignment.scm.controller;
 
 import java.util.List;
 
+import javax.security.auth.login.AccountNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.trustrace.assignment.scm.exception.MyNotFoundException;
 import com.trustrace.assignment.scm.model.Account;
 import com.trustrace.assignment.scm.service.AccountService;
 
@@ -38,17 +42,24 @@ public class AccountController
 		}
 	}
 	
-	@GetMapping("/select/{id}")
-	public ResponseEntity<Account> getById(@PathVariable String id){
-		try{
-		    return new ResponseEntity<>(accountService.getById(id),HttpStatus.OK);
-		}
-		catch(Exception e)
-		{
-			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
-		}
+	// @GetMapping("/select/{id}")
+	// public ResponseEntity<Account> getById(@PathVariable String id){
+	// 	try{
+	// 	    return new ResponseEntity<>(accountService.getById(id),HttpStatus.OK);
+	// 	}
+	// 	catch(Exception e)
+	// 	{
+	// 		return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+	// 	}
 		
-	}
+	// }
+	@GetMapping("/{accountId}")
+	@ExceptionHandler(value = MyNotFoundException.class)
+    public ResponseEntity<Account> getAccountDetails(@PathVariable String accountId) {
+        Account account = accountService.getById(accountId);
+        return ResponseEntity.ok(account);
+    }
+
 	
 	@PostMapping("/save")
 	public ResponseEntity<String> createAccount(@RequestBody Account account)
