@@ -1,0 +1,123 @@
+/* universal selector */
+* {
+    background: aqua;
+}
+
+/* type selector */
+div {
+    background: blue;
+}
+
+table {
+    border: 12px;
+    margin: 4px;
+}
+
+/* class selector */
+.bg-color {
+    background: red;
+}
+
+/* doubt */
+span.bg-color.red {
+    color: wheat;
+}
+
+div,
+span.bg-color.red {
+    color: orchid;
+}
+
+/* id selector */
+#blue {
+    background: blue;
+}
+
+/* Descendant selector  */
+article p {
+    background: yellow;
+}
+
+/* child selector */
+ul>li {
+    list-style: square;
+}
+
+/* Adjacent sibling selector */
+div+p {
+    background-color: yellow;
+}
+
+/* General sibling selector */
+div~p {
+    background-color: purple;
+}
+
+/* Pseudo-class Selector */
+a:link {
+    color: #FF0000;
+}
+
+/* visited link */
+a:visited {
+    color: #00FF00;
+}
+
+/* mouse over link */
+a:hover {
+    color: #FF00FF;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
+
+/* Pesudo-element Selector */
+p::first-letter {
+    font-weight: bold;
+}
+
+/* Attribute Selctor */
+input[type="text"] {
+    border: 1px solid hsl(102, 89%, 44%);
+}
+
+/* Attribute Begins With Selector */
+input[type^="s"] {
+    border: 2px solid green;
+}
+
+/* Attribute Ends With Selector */
+input[type$="l"] {
+    color: red;
+}
+
+/* Attribute Contains Selector */
+[title*="Selector"] {
+    font-weight: bold;
+}
+
+/* First Child Selector */
+li:first-child {
+    color: green;
+}
+
+/* Last Child Selector */
+li:last-child {
+    color: blue;
+}
+
+/* Nth Child Selector */
+li:nth-child(3n) {
+    background-color: #f2f2f2;
+}
+
+/* Enabled and Disabled Selector */
+input:enabled {
+    border-color: green;
+}
+
+input:disabled {
+    background-color: #ccc;
+}
