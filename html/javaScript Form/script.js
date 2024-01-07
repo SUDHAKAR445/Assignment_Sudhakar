@@ -1,17 +1,18 @@
-const fieldFirst = { label: "Full Name", type: "text", id: "first-name", name: "first_name", placeholder: "First" };
-const fieldLast = { type: "text", id: "last-name", name: "last_name", placeholder: "Last" };
+const fieldFirst = { div_id: "name", label: "Full Name", type: "text", id: "first-name", name: "first_name", placeholder: "First" };
+const fieldLast = { div_id: "name", type: "text", id: "last-name", name: "last_name", placeholder: "Last" };
 const fields = [
-    { label: "Date of Birth", type: "date", id: "date-of-birth", name: "date_of_birth", placeholder: "DD/MM/YYYY" },
-    { label: "Email Address", type: "email", id: "email-id", name: "email_id" },
-    { label: "Phone Number", type: "tel", id: "phone-number", name: "phone_number", placeholder: "### ### ####" },
-    { label: "School/College/Institution", type: "text", id: "institution-name", name: "institution_name" },
-    { label: "Grade/Year", type: "text", id: "grade-year", name: "year_grade" }
+    { div_id: "dob", label: "Date of Birth", type: "date", id: "date-of-birth", name: "date_of_birth", placeholder: "DD/MM/YYYY" },
+    { div_id: "email", label: "Email Address", type: "email", id: "email-id", name: "email_id" },
+    { div_id: "phone", label: "Phone Number", type: "tel", id: "phone-number", name: "phone_number", placeholder: "### ### ####" },
+    { div_id: "institution", label: "School/College/Institution", type: "text", id: "institution-name", name: "institution_name" },
+    { div_id: "year", label: "Grade/Year", type: "text", id: "grade-year", name: "year_grade" }
 ];
 
 const form = document.createElement('form');
 form.id = 'registerForm';
 form.method = 'post';
-form.action = 'submit';
+form.action = 'inputForm';
+form.setAttribute("onsubmit", "inputForm()");
 const br = document.createElement('br');
 
 const heading = document.createElement('h1');
@@ -46,7 +47,6 @@ fields.forEach(field => {
 
     const inputDiv = document.createElement('div');
     const label = document.createElement('label');
-   
 
     label.textContent = field.label;
     inputDiv.appendChild(label);
@@ -65,8 +65,10 @@ form.appendChild(br.cloneNode());
 const submitBtn = document.createElement('button');
 submitBtn.type = 'submit';
 submitBtn.textContent = 'Next Page';
+submitBtn.onclick = "inputForm";
 form.appendChild(submitBtn);
 document.body.appendChild(form);
+
 
 // function createLabel(){
 //     return document.createElement('label');

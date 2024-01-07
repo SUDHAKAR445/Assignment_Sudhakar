@@ -12,13 +12,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.trustrace.assignment.scm.service.LoginService;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/login")
 public class LoginController {
     @Autowired
     LoginService loginService;
+    
+    @GetMapping("/hello")
+    public ResponseEntity<?> hello(HttpServletRequest req) {
+        return ResponseEntity.ok(req.getHeader("Authorization").split(" ",2)[1]);
+    }
 
-     @PostMapping("/{username}/{pwd}")
+    @GetMapping("/hai")
+    public ResponseEntity<?> greet(HttpServletRequest req) {
+        return ResponseEntity.ok("hello!");
+    }
+
+    @PostMapping("/{username}/{pwd}")
     public String login(@PathVariable String username, @PathVariable String pwd){
         return loginService.getToken(username,pwd);
     }
