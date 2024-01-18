@@ -5,7 +5,7 @@ function randomString(lenString) {
 
     let resultRandomString = '';
 
-    for (var i = 0; i < lenString; i++) {
+    for (let i = 0; i < lenString; i++) {
         let randomNumber = Math.floor(Math.random() * characters.length);
         resultRandomString += characters.substring(randomNumber, randomNumber + 1);
     }
@@ -14,7 +14,7 @@ function randomString(lenString) {
 }
 
 
-const questions = [
+const questionSet = [
     {
         question: `Which of the following is not a CSS selector which is used to "find" the HTML elements we want to style?`,
         options: ["Complex Selectors", "Combinator Selectors", "Pseudo-elements Selectors", "Simple Selectors"],
@@ -167,6 +167,761 @@ const questions = [
     }
 ]
 
+const questions = [
+    {
+        "question": "The elements between the <td> and </td> tags of an HTML table are ______ by default.",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Justified",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Left aligned",
+                "value": 2,
+                "is_correct": true
+            },
+            {
+                "label": "Centrally aligned",
+                "value": 3, "is_correct": false
+            },
+            {
+                "label": "Right aligned",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": ".NET Framework was designed and developed by _______.",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Microsoft",
+                "value": 1,
+                "is_correct": true
+            },
+            {
+                "label": "IBM",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "Oracle",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "Google",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "The basic elements of a form are called :",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Objects",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Table",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "Record",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "Controls",
+                "value": 4,
+                "is_correct": true
+            }
+        ]
+    },
+    {
+        "question": "The stylesheet file will not be loaded by the browser if you omit ______",
+        "type": "radio",
+        "options": [
+            {
+                "label": "REL",
+                "value": 1,
+                "is_correct": true
+            },
+            {
+                "label": "STYLE",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "BODY",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "HTML",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which of the following multimedia text-based features generalize the concepts of footnotes and cross-references for accessing text documents?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Text importing and exporting",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Text style",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "Hypertext",
+                "value": 3,
+                "is_correct": true
+            },
+            {
+                "label": "Text search",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "What is the latest version of CSS available?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "CSS2",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "CSS3",
+                "value": 2,
+                "is_correct": true
+            },
+            {
+                "label": "CSS3.1",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "CSS4",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "What does the abbreviation HTML stand for?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "HyperText Markup Language",
+                "value": 1,
+                "is_correct": true
+            },
+            {
+                "label": "HighText Markup Language",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "HyperText Markdown Language",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "None of the above",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "The correct sequence of HTML tags for starting a webpage is -",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Head, Title, HTML, Body",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "HTML, Body, Title, Head",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "HTML, Head, Title, Body",
+                "value": 3, "is_correct": true
+            },
+            {
+                "label": "HTML, Title, Head, Body",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which of the following element is responsible for making the text bold in HTML?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "<pre>",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "<a>",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "<b>",
+                "value": 3,
+                "is_correct": true
+            },
+            {
+                "label": "<br>",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which of the following tag is used for inserting the largest heading in HTML?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "<h3>",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "<h1>",
+                "value": 2,
+                "is_correct": true
+            },
+            {
+                "label": "<h5>",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "<h6>",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "How to create an unordered list (a list with the list items in bullets) in HTML?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "<ul>",
+                "value": 1,
+                "is_correct": true
+            },
+            {
+                "label": "<ol>",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "<li>",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "<i>",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which of the following tag is used to define options in a drop-down selection list?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "<select>",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "<list>",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "<dropdown>",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "<option>",
+                "value": 4,
+                "is_correct": true
+            }
+        ]
+    },
+    {
+        "question": "HTML tags are enclosed in-",
+        "type": "radio",
+        "options": [
+            {
+                "label": "# and #",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "{ and }",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "! and ?",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "< and >",
+                "value": 4,
+                "is_correct": true
+            }
+        ]
+    },
+    {
+        "question": "Which of the following tag is used to add rows in the table?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "<td> and </td>",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "<th> and </th>",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "<tr> and </tr>",
+                "value": 3,
+                "is_correct": true
+            },
+            {
+                "label": "<row> and </row>",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "The <hr> tag in HTML is used for -",
+        "type": "radio",
+        "options": [
+            {
+                "label": "New line",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Vertical ruler",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "New paragraph",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "Horizontal ruler",
+                "value": 4,
+                "is_correct": true
+            }
+        ]
+    },
+    {
+        "question": "Which of the following attribute is used to provide a unique name to an element?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "class",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "id",
+                "value": 2,
+                "is_correct": true
+            },
+            {
+                "label": "type",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "None of the above",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "What are the types of unordered or bulleted list in HTML?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Disc, square, triangle",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Polygon, triangle, circle",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "Disc, circle, square",
+                "value": 3,
+                "is_correct": true
+            },
+            {
+                "label": "All of the above",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "CSS stands for -",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Cascade style sheets",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Color and style sheets",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "Cascading style sheets",
+                "value": 3,
+                "is_correct": true
+            },
+            {
+                "label": "None of the above",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which of the following is the correct syntax for referring the external style sheet?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "<style src = example.css>",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": '<style src = "example.css" >',
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "<stylesheet> example.css </stylesheet>",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": '<link rel="stylesheet" type="text/css" href="example.css">',
+                "value": 4,
+                "is_correct": true
+            }
+        ]
+    },
+    {
+        "question": "The property in CSS used to change the text color of an element is -",
+        "type": "radio",
+        "options": [
+            {
+                "label": "bgcolor",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "color",
+                "value": 2,
+                "is_correct": true
+            },
+            {
+                "label": "background-color",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "All of the above",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which type of JavaScript language is ___",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Object-Oriented",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Object-Based",
+                "value": 2,
+                "is_correct": true
+            },
+            {
+                "label": "Assembly-language",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "High-level",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which one of the following also known as Conditional Expression:",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Alternative to if-else",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Switch statement",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "If-then-else statement",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "Immediate if",
+                "value": 4,
+                "is_correct": true
+            }
+        ]
+    },
+    {
+        "question": "In JavaScript, what is a block of statement?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Conditional block",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Block that combines a number of statements into a single compound statement",
+                "value": 2,
+                "is_correct": true
+            },
+            {
+                "label": "Both conditional block and a single statement",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "Block that contains a single statement",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": 'The "function" and " var" are known as:',
+        "type": "radio",
+        "options": [
+            {
+                "label": "Keywords",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Data types",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "Declaration statements",
+                "value": 3,
+                "is_correct": true
+            },
+            {
+                "label": "Prototypes",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which of the following variables takes precedence over the others if the names are the same?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Global variable",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "The local element",
+                "value": 2,
+                "is_correct": true
+            },
+            {
+                "label": "The two of the above",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "None of the above",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which one of the following is the correct way for calling the JavaScript code?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Preprocessor",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Triggering Event",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "RMI",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "Function/Method",
+                "value": 4,
+                "is_correct": true
+            }
+        ]
+    },
+    {
+        "question": "Which of the following type of a variable is volatile?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Mutable variable",
+                "value": 1,
+                "is_correct": true
+            },
+            {
+                "label": "Dynamic variable",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "Volatile variable",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "Immutable variable",
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which of the following option is used as hexadecimal literal beginning?",
+        "type": "radio",
+        "options": [
+            {
+                "label": "00",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "0x",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": "0X",
+                "value": 3,
+                "is_correct": false
+            },
+            {
+                "label": "Both 0x and 0X",
+                "value": 4,
+                "is_correct": true
+            }
+        ]
+    },
+    {
+        "question": "When there is an indefinite or an infinite value during an arithmetic computation in a program, then JavaScript prints______.",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Prints an exception error",
+                "value": 1,
+                "is_correct": false
+            },
+            {
+                "label": "Prints an overflow error",
+                "value": 2,
+                "is_correct": false
+            },
+            {
+                "label": 'Displays "Infinity"',
+                "value": 3,
+                "is_correct": true
+            },
+            {
+                "label": 'Prints the value as such',
+                "value": 4,
+                "is_correct": false
+            }
+        ]
+    }
+]
+
 //Generate random array ranges from 0 to question.length-1;
 const randomIndices = [];
 
@@ -199,11 +954,10 @@ startBtn.addEventListener("click", displayQuestion);
 quizFormEl.appendChild(startBtn);
 
 // store the correct answers in the array
-const correct_answers = [];
 
 function displayQuestion() {
     startBtn.remove();
-    
+    let questionSerialNo = randomIndices.length;
     randomIndices.forEach(random => {
         const question = questions[random];
 
@@ -211,7 +965,7 @@ function displayQuestion() {
         questionDivEl.className = "question-container";
 
         const questionLabelEl = document.createElement("label");
-        questionLabelEl.textContent = `Q${random + 1}. ${question.question}`;
+        questionLabelEl.textContent = `Q${randomIndices.length - questionSerialNo + 1}. ${question.question}`;
         questionDivEl.appendChild(questionLabelEl);
 
         const optionDivEl = document.createElement("div");
@@ -219,27 +973,29 @@ function displayQuestion() {
         question.options.forEach(option => {
             const inputEl = document.createElement("input");
             const randomName = randomString(10);
-            inputEl.type = "radio";
-            inputEl.value = option;
+            inputEl.type = question.type;
+            inputEl.value = option.value;
             inputEl.id = randomName;
             inputEl.className = "quiz-option";
             inputEl.required = true;
             inputEl.name = `Q${random + 1}`;
 
             const optionLabel = document.createElement("label");
-            optionLabel.textContent = option;
+            optionLabel.textContent = option.label;
             optionLabel.setAttribute("for", randomName);
 
             optionDivEl.appendChild(inputEl);
             optionDivEl.appendChild(optionLabel);
             optionDivEl.appendChild(document.createElement('br'));
+
         })
         questionDivEl.appendChild(optionDivEl);
         quizFormEl.appendChild(questionDivEl);
         quizFormEl.appendChild(document.createElement('br'));
 
+        questionSerialNo--;
+
         //push the correct answer for each question in the array for validation
-        correct_answers.push(question.correct_answer);
     })
 
     const submitBtn = document.createElement('button');
@@ -259,13 +1015,13 @@ function calculateQuizScore(e) {
         const selectedAnswer = document.querySelector(`input[name="Q${index + 1}"]:checked`);
         if (selectedAnswer) {
             const selectedAnswerLabel = document.querySelector('label[for=' + selectedAnswer.id + ']');
+            console.log(selectedAnswerLabel);
             const userAnswer = selectedAnswer.value;
-            if (userAnswer === correct_answers[correctAnswerIndex]) {
+            if (userAnswer === correctAnswers[correctAnswerIndex]) {
                 selectedAnswerLabel.classList.add("correct-answer");
                 score++;
             }
-            else
-            {
+            else {
                 selectedAnswerLabel.classList.add("incorrect-answer");
             }
         }
@@ -278,6 +1034,8 @@ function calculateQuizScore(e) {
     if (submitBtn) {
         quizFormEl.removeChild(submitBtn);
     }
+
+    window.scrollTo(0, 0);
     const restartButtonEl = document.createElement("button");
     restartButtonEl.type = "reset";
     restartButtonEl.className = 'quiz-restart';
@@ -299,5 +1057,4 @@ function restartQuiz(e) {
 }
 divEl.appendChild(quizFormEl);
 document.body.appendChild(divEl);
-
 
