@@ -4,64 +4,61 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.sudhakar.library.entity.Book;
 import com.sudhakar.library.service.BookService;
 
 @RestController
-@RequestMapping("api/book")
+@RequestMapping("/api/books")
 public class BookController {
 
     @Autowired
-    BookService bookService;
+    private BookService bookService;
 
-    @GetMapping("/get/all-books")
+    @GetMapping("/all")
     public ResponseEntity<List<Book>> getAllBooks() {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/get/book-id-or-isbn/{bookIdOrIsbn}")
-    public ResponseEntity<Book> getBookByBookIdOrIsbn(@PathVariable String bookIdOrIsbn) {
+    @GetMapping("/by-id-or-isbn/{bookIdOrIsbn}")
+    public ResponseEntity<Book> getBookByIdOrIsbn(@PathVariable String bookIdOrIsbn) {
         return bookService.getBookByBookIdOrIsbn(bookIdOrIsbn);
     }
 
-    @PostMapping("/save/book")
+    @PostMapping("/save")
     public ResponseEntity<Book> saveBook(@RequestBody Book book) {
         return bookService.saveBook(book);
     }
 
-    @PutMapping("/update/book-id-or-isbn/{bookIdOrIsbn}")
+    @PutMapping("/update/{bookIdOrIsbn}")
     public ResponseEntity<Book> updateBookByIdentifier(@PathVariable String bookIdOrIsbn,
             @RequestBody Book updatedBook) {
         return bookService.updateBookByBookIdOrIsbn(bookIdOrIsbn, updatedBook);
     }
 
     @DeleteMapping("/delete/{bookIdOrIsbn}")
-    public ResponseEntity<Void> deleteBookByBookIdOrIsbn(@PathVariable String bookIdOrIsbn) {
+    public ResponseEntity<Void> deleteBookByIdOrIsbn(@PathVariable String bookIdOrIsbn) {
         return bookService.deleteBookByBookIdOrIsbn(bookIdOrIsbn);
     }
 
-    @GetMapping("/get/genre")
+    @GetMapping("/by-genre/{genre}")
     public ResponseEntity<List<Book>> getBooksByGenre(@PathVariable String genre) {
         return bookService.getBooksByGenre(genre);
     }
 
-    @GetMapping("/get/by-title")
-    public ResponseEntity<List<Book>> getBookByTitle(@PathVariable String title) {
+    @GetMapping("/by-title/{title}")
+    public ResponseEntity<List<Book>> getBooksByTitle(@PathVariable String title) {
         return bookService.getBooksByTitle(title);
     }
 
-    @GetMapping("/get/book/author-id-or-name/{authorIdOrAuthorName}")
-    public ResponseEntity<List<Book>> getAllBooksByAuthorIdOrAuthorName(@PathVariable String authorIdOrAuthorName) {
+    @GetMapping("/by-author/{authorIdOrAuthorName}")
+    public ResponseEntity<List<Book>> getBooksByAuthorIdOrAuthorName(@PathVariable String authorIdOrAuthorName) {
         return bookService.getAllBooksByAuthorIdOrAuthorName(authorIdOrAuthorName);
     }
 
+    @GetMapping("/by-publisher/{publisherIdOrPublisherName}")
+    public ResponseEntity<List<Book>> getBooksByPublisherIdOrPublisherName(@PathVariable String publisherIdOrPublisherName) {
+        return bookService.getAllBooksByPublisherIdOrPublisherName(publisherIdOrPublisherName);
+    }
 }

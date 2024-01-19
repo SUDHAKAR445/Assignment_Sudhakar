@@ -11,8 +11,6 @@ public interface UserService {
 
     ResponseEntity<List<User>> getAllUsers();
 
-    ResponseEntity<User> saveUser(User user);
-
     ResponseEntity<User> getUserByUsernameOrEmail(String usernameOrEmail);
 
     ResponseEntity<User> updateUserByUsernameOrEmail(String usernameOrEmail, User user);

@@ -3,6 +3,8 @@ package com.sudhakar.library.service.implementation;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.math.BigDecimal;
+import java.time.Duration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,8 +19,6 @@ import com.sudhakar.library.repository.BookRepository;
 import com.sudhakar.library.repository.TransactionRepository;
 import com.sudhakar.library.repository.UserRepository;
 import com.sudhakar.library.service.TransactionService;
-
-import ch.qos.logback.core.util.Duration;
 
 @Service
 public class TransactionServiceImplementation implements TransactionService {
@@ -43,7 +43,8 @@ public class TransactionServiceImplementation implements TransactionService {
 
     public ResponseEntity<List<Transaction>> getTransactionsByUsernameOrEmail(String usernameOrEmail) {
         try {
-            List<Transaction> transactions = transactionRepository.findByUserUsernameOrUserEmail(usernameOrEmail, usernameOrEmail);
+            List<Transaction> transactions = transactionRepository.findByUserUsernameOrUserEmail(usernameOrEmail,
+                    usernameOrEmail);
             if (!transactions.isEmpty()) {
                 return new ResponseEntity<>(transactions, HttpStatus.OK);
             } else {
@@ -53,32 +54,32 @@ public class TransactionServiceImplementation implements TransactionService {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
 
     public ResponseEntity<Transaction> createTransaction(Transaction transaction) {
         try {
             Optional<Book> optionalBook = bookRepository.findByBookId(transaction.getBook().getBookId());
             Optional<User> optionalUser = userRepository.findByUsername(transaction.getUser().getUsername());
-    
+
             if (optionalBook.isPresent() && optionalUser.isPresent()) {
                 Book book = optionalBook.get();
-    
+
                 if (book.getAvailableQuantity() <= 0) {
                     return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
                 }
-    
+
                 transaction.setBook(book);
                 transaction.setUser(optionalUser.get());
                 transaction.setBorrowDate(new Date());
-    
+                transaction.setTransactionStatus(TransactionStatus.BORROW);
+
                 Transaction savedTransaction = transactionRepository.save(transaction);
-    
+
                 book.setAvailableQuantity(book.getAvailableQuantity() - 1);
                 bookRepository.save(book);
-    
+
                 return new ResponseEntity<>(savedTransaction, HttpStatus.CREATED);
             } else {
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -93,14 +94,24 @@ public class TransactionServiceImplementation implements TransactionService {
             if (optionalUser.isPresent() && optionalBook.isPresent()) {
                 Book book = optionalBook.get();
 
-                Transaction borrowedTransaction = transactionRepository.findByUserUsernameOrUserEmailAndBookBookIdAndTransactionStatus(usernameOrEmail,usernameOrEmail, bookId, TransactionStatus.BORROW);
+                Transaction borrowedTransaction = transactionRepository
+                        .findByUserUsernameOrUserEmailAndBookBookIdAndTransactionStatus(usernameOrEmail,
+                                usernameOrEmail, bookId, TransactionStatus.BORROW);
 
                 if (borrowedTransaction != null) {
                     borrowedTransaction.setReturnDate(new Date());
                     borrowedTransaction.setTransactionStatus(TransactionStatus.RETURN);
 
-                    //Calculate the fine amount
-                    Duration duration = Duration.
+                    // Calculate the fine amount
+                    long duration = Duration
+                            .between(borrowedTransaction.getBorrowDate().toInstant(), new Date().toInstant()).toDays();
+                    int fineDays = 15;
+
+                    if (fineDays < duration) {
+                        long daysDifference = duration - fineDays;
+                        BigDecimal fineAmount = new BigDecimal("100.00").multiply(BigDecimal.valueOf(daysDifference));
+                        borrowedTransaction.setFineAmount(fineAmount);
+                    }
                     book.setAvailableQuantity(book.getAvailableQuantity() + 1);
                     bookRepository.save(book);
 
@@ -131,9 +142,11 @@ public class TransactionServiceImplementation implements TransactionService {
         }
     }
 
-    public ResponseEntity<List<Transaction>> getTransactionByUsernameOrEmailWithStatus(String usernameOrEmail, TransactionStatus status) {
+    public ResponseEntity<List<Transaction>> getTransactionByUsernameOrEmailWithStatus(String usernameOrEmail,
+            TransactionStatus status) {
         try {
-            List<Transaction> transactions = transactionRepository.findByUserUsernameOrUserEmailAndTransactionStatus(usernameOrEmail, usernameOrEmail, status);
+            List<Transaction> transactions = transactionRepository
+                    .findByUserUsernameOrUserEmailAndTransactionStatus(usernameOrEmail, usernameOrEmail, status);
 
             if (!transactions.isEmpty()) {
                 return new ResponseEntity<>(transactions, HttpStatus.OK);
@@ -145,6 +158,4 @@ public class TransactionServiceImplementation implements TransactionService {
         }
     }
 
-    
 }
-

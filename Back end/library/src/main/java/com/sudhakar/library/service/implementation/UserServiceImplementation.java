@@ -30,21 +30,6 @@ public class UserServiceImplementation implements UserService {
         }
     }
 
-    public ResponseEntity<User> saveUser(User user) {
-        try {
-            if (userRepository.existsByUsernameOrEmail(user.getUsername(), user.getEmail())) {
-                throw new DuplicateUserException("Username or email already exists.");
-            }
-
-            User savedUser = userRepository.save(user);
-            return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
-        } catch (DuplicateUserException e) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
     public ResponseEntity<User> getUserByUsernameOrEmail(String usernameOrEmail) {
         try {
             Optional<User> optionalUser = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail);

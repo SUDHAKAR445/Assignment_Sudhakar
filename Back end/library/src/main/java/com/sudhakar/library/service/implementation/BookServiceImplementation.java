@@ -48,7 +48,6 @@ public class BookServiceImplementation implements BookService {
         }
     }
     
-
     public ResponseEntity<Book> saveBook(Book book) {
         try {
             if (bookRepository.existsByBookIdOrIsbn(book.getBookId(), book.getIsbn())) {
@@ -62,11 +61,12 @@ public class BookServiceImplementation implements BookService {
             Book savedBook;
             if (optionalAuthor.isPresent() && optionalPublisher.isPresent()) {
                 book.setAuthor(optionalAuthor.get());
+                book.setPublisher(optionalPublisher.get());
                 savedBook = bookRepository.save(book);
+                return new ResponseEntity<>(savedBook, HttpStatus.CREATED);
             } else {
-                savedBook = bookRepository.save(book);
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
-            return new ResponseEntity<>(savedBook, HttpStatus.CREATED);
         } catch (DuplicateBookException e) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         } catch (Exception e) {
