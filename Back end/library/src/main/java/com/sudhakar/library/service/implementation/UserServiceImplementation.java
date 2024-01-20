@@ -7,11 +7,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.sudhakar.library.entity.Role;
 import com.sudhakar.library.entity.User;
-import com.sudhakar.library.exception.DuplicateUserException;
 import com.sudhakar.library.repository.UserRepository;
 import com.sudhakar.library.service.UserService;
 
@@ -20,6 +20,9 @@ public class UserServiceImplementation implements UserService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     public ResponseEntity<List<User>> getAllUsers() {
         try {
@@ -56,7 +59,7 @@ public class UserServiceImplementation implements UserService {
                 existingMember.setUsername(
                         updateUser.getUsername() != null ? updateUser.getUsername() : existingMember.getUsername());
                 existingMember.setPassword(
-                        updateUser.getPassword() != null ? updateUser.getPassword() : existingMember.getPassword());
+                        updateUser.getPassword() != null ? passwordEncoder.encode(updateUser.getPassword()) : existingMember.getPassword());
                 existingMember.setRole(existingMember.getRole());
 
                 User savedMember = userRepository.save(existingMember);

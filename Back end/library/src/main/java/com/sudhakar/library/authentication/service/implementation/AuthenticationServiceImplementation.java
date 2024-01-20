@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -47,7 +48,6 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
                                 .lastName(request.getLastName())
                                 .email(request.getEmail())
                                 .username(request.getUsername())
-                                .role(request.getRole())
                                 .password(passwordEncoder.encode(request.getPassword()))
                                 .build();
 
@@ -56,8 +56,9 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
                 } else if (user.getEmail().endsWith("librarian@gmail.com")
                                 && user.getUsername().endsWith("_librarian")) {
                         user.setRole(Role.LIBRARIAN);
+                } else {
+                        user.setRole(Role.MEMBER);
                 }
-                user.setRole(Role.MEMBER);
                 User savedUser;
                 try {
                         if (userRepository.existsByUsernameOrEmail(user.getUsername(), user.getEmail())) {
@@ -80,13 +81,14 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
         }
 
         public ResponseEntity<AuthenticationResponse> authenticate(AuthenticationRequest request) {
+                
                 authenticationManager.authenticate(
                                 new UsernamePasswordAuthenticationToken(
-                                                request.getEmail(),
+                                                request.getUsername(),
                                                 request.getPassword()));
 
-                User user = userRepository.findByEmail(request.getEmail())
-                                .orElseThrow(() -> new UsernameNotFoundException("Email id or Password invalid"));
+                User user = userRepository.findByUsername(request.getUsername())
+                                .orElseThrow(() -> new UsernameNotFoundException("Username or Password invalid"));
 
                 Map<String, Object> extraClaims = new HashMap<>();
                 extraClaims.put("role", user.getRole());
@@ -99,6 +101,7 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
         }
 
         private void saveUserToken(User user, String jwtToken) {
+                
                 Token token = Token.builder()
                                 .user(user)
                                 .token(jwtToken)

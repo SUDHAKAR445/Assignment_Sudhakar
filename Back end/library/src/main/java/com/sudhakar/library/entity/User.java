@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sudhakar.library.authentication.model.Token;
 
 import jakarta.persistence.Column;
@@ -33,6 +34,7 @@ public class User implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
 
     @Column(name = "first_name")
@@ -49,6 +51,7 @@ public class User implements UserDetails{
     private Role role;
 
     @OneToMany( mappedBy = "user")
+    @JsonIgnore
     private List<Token> tokens;
 
     @Column(name = "username", unique = true)
@@ -89,6 +92,6 @@ public class User implements UserDetails{
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 }
