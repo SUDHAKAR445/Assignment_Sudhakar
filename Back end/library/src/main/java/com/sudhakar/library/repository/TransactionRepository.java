@@ -1,11 +1,14 @@
 package com.sudhakar.library.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.sudhakar.library.entity.Book;
 import com.sudhakar.library.entity.Transaction;
 import com.sudhakar.library.entity.TransactionStatus;
+import com.sudhakar.library.entity.User;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
@@ -18,5 +21,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
                         TransactionStatus status);
 
         List<Transaction> findByUserUsernameOrUserEmail(String username, String email);
+
+        Optional<Transaction> findByUserAndBookAndTransactionStatus(User user, Book book, TransactionStatus borrow);
 
 }

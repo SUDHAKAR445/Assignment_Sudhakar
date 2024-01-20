@@ -1,5 +1,10 @@
 package com.sudhakar.library.authentication.service.implementation;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,6 +16,9 @@ import org.springframework.stereotype.Service;
 import com.sudhakar.library.authentication.dto.AuthenticationRequest;
 import com.sudhakar.library.authentication.dto.AuthenticationResponse;
 import com.sudhakar.library.authentication.dto.RegisterRequest;
+import com.sudhakar.library.authentication.model.Token;
+import com.sudhakar.library.authentication.model.TokenType;
+import com.sudhakar.library.authentication.repository.TokenRepository;
 import com.sudhakar.library.authentication.service.AuthenticationService;
 import com.sudhakar.library.authentication.service.JwtService;
 import com.sudhakar.library.entity.Role;
@@ -30,6 +38,9 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
         private final JwtService jwtService;
         private final AuthenticationManager authenticationManager;
 
+        @Autowired
+        TokenRepository tokenRepository;
+
         public ResponseEntity<AuthenticationResponse> register(RegisterRequest request) {
                 User user = User.builder()
                                 .firstName(request.getFirstName())
@@ -47,19 +58,22 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
                         user.setRole(Role.LIBRARIAN);
                 }
                 user.setRole(Role.MEMBER);
-
+                User savedUser;
                 try {
                         if (userRepository.existsByUsernameOrEmail(user.getUsername(), user.getEmail())) {
                                 throw new DuplicateUserException("Username or email already exists.");
                         }
-                        userRepository.save(user);
+                        savedUser = userRepository.save(user);
                 } catch (DuplicateUserException e) {
                         return new ResponseEntity<>(HttpStatus.CONFLICT);
                 } catch (Exception e) {
                         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
                 }
 
-                var jwtToken = jwtService.generateToken(user);
+                String jwtToken = jwtService.generateToken(savedUser);
+                revokeAllUserTokens(savedUser);
+                saveUserToken(savedUser, jwtToken);
+
                 return new ResponseEntity<>(AuthenticationResponse.builder()
                                 .token(jwtToken)
                                 .build(), HttpStatus.OK);
@@ -71,13 +85,41 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
                                                 request.getEmail(),
                                                 request.getPassword()));
 
-                var user = userRepository.findByEmail(request.getEmail())
+                User user = userRepository.findByEmail(request.getEmail())
                                 .orElseThrow(() -> new UsernameNotFoundException("Email id or Password invalid"));
 
-                var jwtToken = jwtService.generateToken(user);
+                Map<String, Object> extraClaims = new HashMap<>();
+                extraClaims.put("role", user.getRole());
+                String jwtToken = jwtService.generateToken(extraClaims, user);
+                revokeAllUserTokens(user);
+                saveUserToken(user, jwtToken);
                 return new ResponseEntity<>(AuthenticationResponse.builder()
                                 .token(jwtToken)
                                 .build(), HttpStatus.OK);
         }
 
+        private void saveUserToken(User user, String jwtToken) {
+                Token token = Token.builder()
+                                .user(user)
+                                .token(jwtToken)
+                                .tokenType(TokenType.BEARER)
+                                .expired(false)
+                                .revoked(false)
+                                .build();
+
+                tokenRepository.save(token);
+        }
+
+        private void revokeAllUserTokens(User user) {
+
+                List<Token> validUserTokens = tokenRepository.findAllValidTokensByUser(user.getId());
+                if(validUserTokens.isEmpty()) {
+                        return;
+                }
+                validUserTokens.forEach((token -> {
+                        token.setExpired(true);
+                        token.setRevoked(true);
+                }));
+                tokenRepository.saveAll(validUserTokens);
+        }
 }

@@ -62,13 +62,21 @@ public class TransactionServiceImplementation implements TransactionService {
 
             if (optionalBook.isPresent() && optionalUser.isPresent()) {
                 Book book = optionalBook.get();
+                User user = optionalUser.get();
+
+                Optional<Transaction> existingTransaction = transactionRepository
+                        .findByUserAndBookAndTransactionStatus(user, book, TransactionStatus.BORROW);
+
+                if (existingTransaction.isPresent()) {
+                    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                }
 
                 if (book.getAvailableQuantity() <= 0) {
                     return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
                 }
 
                 transaction.setBook(book);
-                transaction.setUser(optionalUser.get());
+                transaction.setUser(user);
                 transaction.setBorrowDate(new Date());
                 transaction.setTransactionStatus(TransactionStatus.BORROW);
 
@@ -93,13 +101,14 @@ public class TransactionServiceImplementation implements TransactionService {
 
             if (optionalUser.isPresent() && optionalBook.isPresent()) {
                 Book book = optionalBook.get();
+                User user = optionalUser.get();
 
-                Transaction borrowedTransaction = transactionRepository
-                        .findByUserUsernameOrUserEmailAndBookBookIdAndTransactionStatus(usernameOrEmail,
-                                usernameOrEmail, bookId, TransactionStatus.BORROW);
+                Optional<Transaction> borrowed = transactionRepository
+                        .findByUserAndBookAndTransactionStatus(user, book, TransactionStatus.BORROW);
 
-                if (borrowedTransaction != null) {
-                    borrowedTransaction.setReturnDate(new Date());
+                if (borrowed.isPresent()) {
+                    Transaction borrowedTransaction = borrowed.get();
+                    borrowedTransaction.setReturnDate(new Date(System.currentTimeMillis()- 1000 * 60 * 24 * 24));
                     borrowedTransaction.setTransactionStatus(TransactionStatus.RETURN);
 
                     // Calculate the fine amount
