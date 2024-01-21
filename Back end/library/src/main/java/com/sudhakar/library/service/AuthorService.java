@@ -18,4 +18,3 @@ public interface AuthorService {
 
     ResponseEntity<Author> getAuthorById(String authorId);
 }
-

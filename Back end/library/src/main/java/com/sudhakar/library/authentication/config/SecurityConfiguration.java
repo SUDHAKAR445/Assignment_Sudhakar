@@ -30,8 +30,31 @@ public class SecurityConfiguration {
                 http.csrf(csrf -> csrf
                                 .disable())
                                 .authorizeHttpRequests(requests -> requests
-                                                .requestMatchers("/api/auth/**")
-                                                .permitAll()
+                                                .requestMatchers("/api/auth/**").permitAll()
+                                                .requestMatchers("/api/authors/delete/**",
+                                                                "/api/books/delete/**",
+                                                                "/api/genres/delete/**",
+                                                                "/api/publishers/delete/**",
+                                                                "/api/users/all",
+                                                                "/api/users/**",
+                                                                "/api/users/delete/**",
+                                                                "/api/users/by-role/**")
+                                                .hasAuthority("ADMIN")
+                                                .requestMatchers("/api/authors/create",
+                                                                "/api/authors/update/**",
+                                                                "/api/books/create",
+                                                                "/api/books/update/**",
+                                                                "/api/genres/create",
+                                                                "/api/genres/update/**",
+                                                                "/api/publishers/create",
+                                                                "/api/publishers/update/**",
+                                                                "/api/transactions/all",
+                                                                "/api/transactions/user/**",
+                                                                "/api/transactions/create",
+                                                                "/api/transactions/return/**",
+                                                                "/api/transactions/status/**",
+                                                                "/api/transactions/user/status/**")
+                                                .hasAnyAuthority("ADMIN", "LIBRARIAN")
                                                 .anyRequest()
                                                 .authenticated())
                                 .sessionManagement(management -> management
@@ -39,10 +62,11 @@ public class SecurityConfiguration {
                                 .authenticationProvider(authenticationProvider)
                                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                                 .logout(logout -> logout
-                                        .logoutUrl("api/auth/logout")
-                                        .addLogoutHandler(logoutHandler)
-                                        .logoutSuccessHandler((request, response, authentication)-> SecurityContextHolder.clearContext())
-                                );
+                                                .logoutUrl("api/auth/logout")
+                                                .addLogoutHandler(logoutHandler)
+                                                .logoutSuccessHandler((request, response,
+                                                                authentication) -> SecurityContextHolder
+                                                                                .clearContext()));
 
                 return http.build();
         }

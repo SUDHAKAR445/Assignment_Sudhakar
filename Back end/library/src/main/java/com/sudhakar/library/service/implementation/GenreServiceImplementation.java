@@ -48,10 +48,14 @@ public class GenreServiceImplementation implements GenreService {
             if (optionalGenre.isPresent()) {
 
                 Genre existingGenre = optionalGenre.get();
-                existingGenre.setName(updatedGenre.getName() != null ? updatedGenre.getName() : existingGenre.getName());
-                existingGenre.setRackNumber(updatedGenre.getRackNumber() != 0 ? updatedGenre.getRackNumber() : existingGenre.getRackNumber());
-                existingGenre.setFloor(updatedGenre.getFloor() != 0 ? updatedGenre.getFloor() : existingGenre.getFloor());
-                existingGenre.setDescription(updatedGenre.getDescription() != null ? updatedGenre.getDescription() : existingGenre.getDescription());
+                existingGenre
+                        .setName(updatedGenre.getName() != null ? updatedGenre.getName() : existingGenre.getName());
+                existingGenre.setRackNumber(updatedGenre.getRackNumber() != 0 ? updatedGenre.getRackNumber()
+                        : existingGenre.getRackNumber());
+                existingGenre
+                        .setFloor(updatedGenre.getFloor() != 0 ? updatedGenre.getFloor() : existingGenre.getFloor());
+                existingGenre.setDescription(updatedGenre.getDescription() != null ? updatedGenre.getDescription()
+                        : existingGenre.getDescription());
 
                 Genre savedGenre = genreRepository.save(existingGenre);
 

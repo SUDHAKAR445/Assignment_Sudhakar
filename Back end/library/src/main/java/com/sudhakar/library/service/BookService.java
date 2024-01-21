@@ -1,6 +1,7 @@
 package com.sudhakar.library.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 
@@ -33,4 +34,10 @@ public interface BookService {
     ResponseEntity<List<Book>> getAllBooksByPublicationYear(int startYear, int endYear);
 
     ResponseEntity<List<Book>> getAllBooksByPublicationYearAndGenre(int startYear, int endYear, String genre);
+
+    ResponseEntity<String> calculateTotalBookCount();
+
+    ResponseEntity<String> calculateTotalBookInGenre(String genre);
+
+    ResponseEntity<Map<String, Integer>> calculateTotalBookInGenreVice();
 }

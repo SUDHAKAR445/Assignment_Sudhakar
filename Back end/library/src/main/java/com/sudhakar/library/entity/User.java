@@ -30,7 +30,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "users")
-public class User implements UserDetails{
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,7 +50,7 @@ public class User implements UserDetails{
     @Column(name = "role")
     private Role role;
 
-    @OneToMany( mappedBy = "user")
+    @OneToMany(mappedBy = "user")
     @JsonIgnore
     private List<Token> tokens;
 

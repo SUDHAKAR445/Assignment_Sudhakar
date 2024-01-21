@@ -2,6 +2,7 @@ package com.sudhakar.library.service.implementation;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -112,7 +113,7 @@ public class AuthorServiceImplementation implements AuthorService {
             Optional<Author> optionalAuthor = authorRepository.findByAuthorId(authorId);
             if (optionalAuthor.isPresent()) {
                 Author author = optionalAuthor.get();
-                return new ResponseEntity<>(author,HttpStatus.OK);
+                return new ResponseEntity<>(author, HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }

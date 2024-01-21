@@ -8,7 +8,7 @@ import com.sudhakar.library.entity.Genre;
 
 public interface GenreService {
 
-    ResponseEntity<Genre> createGenre (Genre genre);
+    ResponseEntity<Genre> createGenre(Genre genre);
 
     ResponseEntity<Genre> updateGenreByName(String name, Genre genre);
 

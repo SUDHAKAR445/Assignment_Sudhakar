@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -70,8 +69,10 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
                 } catch (Exception e) {
                         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
                 }
+                Map<String, Object> extraClaims = new HashMap<>();
+                extraClaims.put("Authorities", savedUser.getAuthorities());
+                String jwtToken = jwtService.generateToken(extraClaims, savedUser);
 
-                String jwtToken = jwtService.generateToken(savedUser);
                 revokeAllUserTokens(savedUser);
                 saveUserToken(savedUser, jwtToken);
 
@@ -81,7 +82,7 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
         }
 
         public ResponseEntity<AuthenticationResponse> authenticate(AuthenticationRequest request) {
-                
+
                 authenticationManager.authenticate(
                                 new UsernamePasswordAuthenticationToken(
                                                 request.getUsername(),
@@ -91,7 +92,7 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
                                 .orElseThrow(() -> new UsernameNotFoundException("Username or Password invalid"));
 
                 Map<String, Object> extraClaims = new HashMap<>();
-                extraClaims.put("role", user.getRole());
+                extraClaims.put("Authorities", user.getAuthorities());
                 String jwtToken = jwtService.generateToken(extraClaims, user);
                 revokeAllUserTokens(user);
                 saveUserToken(user, jwtToken);
@@ -101,7 +102,7 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
         }
 
         private void saveUserToken(User user, String jwtToken) {
-                
+
                 Token token = Token.builder()
                                 .user(user)
                                 .token(jwtToken)
@@ -116,7 +117,7 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
         private void revokeAllUserTokens(User user) {
 
                 List<Token> validUserTokens = tokenRepository.findAllValidTokensByUser(user.getId());
-                if(validUserTokens.isEmpty()) {
+                if (validUserTokens.isEmpty()) {
                         return;
                 }
                 validUserTokens.forEach((token -> {

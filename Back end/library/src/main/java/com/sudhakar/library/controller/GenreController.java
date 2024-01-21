@@ -65,4 +65,3 @@ public class GenreController {
         return genreService.getGenresByRackNumberAndFloor(rackNumber, floor);
     }
 }
-

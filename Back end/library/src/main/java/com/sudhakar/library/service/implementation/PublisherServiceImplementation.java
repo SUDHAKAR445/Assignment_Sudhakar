@@ -2,6 +2,7 @@ package com.sudhakar.library.service.implementation;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,21 +35,20 @@ public class PublisherServiceImplementation implements PublisherService {
     }
 
     @Override
-public ResponseEntity<Publisher> createPublisher(Publisher publisher) {
-    try {
-        if (publisherRepository.existsByPublisherId(publisher.getPublisherId())) {
-            throw new DuplicatePublisherException("Publisher Id already exists.");
+    public ResponseEntity<Publisher> createPublisher(Publisher publisher) {
+        try {
+            if (publisherRepository.existsByPublisherId(publisher.getPublisherId())) {
+                throw new DuplicatePublisherException("Publisher Id already exists.");
+            }
+
+            Publisher savedPublisher = publisherRepository.save(publisher);
+            return new ResponseEntity<>(savedPublisher, HttpStatus.CREATED);
+        } catch (DuplicatePublisherException e) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-        Publisher savedPublisher = publisherRepository.save(publisher);
-        return new ResponseEntity<>(savedPublisher, HttpStatus.CREATED);
-    } catch (DuplicatePublisherException e) {
-        return new ResponseEntity<>(HttpStatus.CONFLICT);
-    } catch (Exception e) {
-        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
-}
-
 
     @Override
     public ResponseEntity<Publisher> updatePublisherByPublisherId(String publisherId, Publisher updatedPublisher) {
@@ -88,7 +88,7 @@ public ResponseEntity<Publisher> createPublisher(Publisher publisher) {
                     bookRepository.delete(book);
                 }
                 publisherRepository.delete(optionalPublisher.get());
-                
+
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -99,17 +99,17 @@ public ResponseEntity<Publisher> createPublisher(Publisher publisher) {
     }
 
     @Override
-public ResponseEntity<Publisher> getPublisherById(String publisherId) {
-    try {
-        Optional<Publisher> optionalPublisher = publisherRepository.findByPublisherId(publisherId);
-        if (optionalPublisher.isPresent()) {
-            return new ResponseEntity<>(optionalPublisher.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<Publisher> getPublisherById(String publisherId) {
+        try {
+            Optional<Publisher> optionalPublisher = publisherRepository.findByPublisherId(publisherId);
+            if (optionalPublisher.isPresent()) {
+                return new ResponseEntity<>(optionalPublisher.get(), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    } catch (Exception e) {
-        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
-}
 
 }

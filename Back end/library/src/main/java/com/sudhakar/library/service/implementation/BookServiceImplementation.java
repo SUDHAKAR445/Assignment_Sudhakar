@@ -1,7 +1,9 @@
 package com.sudhakar.library.service.implementation;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +73,7 @@ public class BookServiceImplementation implements BookService {
                 book.setAuthor(optionalAuthor.get());
                 book.setPublisher(optionalPublisher.get());
                 book.setGenre(optionalGenre.get());
-            } else if(optionalAuthor.isPresent() && optionalPublisher.isPresent() && !optionalGenre.isPresent()) {
+            } else if (optionalAuthor.isPresent() && optionalPublisher.isPresent() && !optionalGenre.isPresent()) {
                 book.setAuthor(optionalAuthor.get());
                 book.setPublisher(optionalPublisher.get());
             } else if (optionalAuthor.isPresent() && !optionalPublisher.isPresent() && optionalGenre.isPresent()) {
@@ -260,6 +262,66 @@ public class BookServiceImplementation implements BookService {
                 return new ResponseEntity<>(books, HttpStatus.OK);
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    public ResponseEntity<String> calculateTotalBookCount() {
+        try {
+            List<Book> books = bookRepository.findAll();
+            int total = 0;
+            if (!books.isEmpty()) {
+                for (int i = 0; i < books.size(); i++) {
+                    total += books.get(i).getAvailableQuantity();
+                }
+                return new ResponseEntity<>("Total books in Library : " + total, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Sorry, No books in Library", HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    public ResponseEntity<String> calculateTotalBookInGenre(String genre) {
+        try {
+            List<Book> books = bookRepository.findByGenreName(genre);
+            int total = 0;
+            if (!books.isEmpty()) {
+                for (int i = 0; i < books.size(); i++) {
+                    total += books.get(i).getAvailableQuantity();
+                }
+                return new ResponseEntity<>("Total books in " + genre + " : " + total, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Sorry, No books in " + genre, HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Integer>> calculateTotalBookInGenreVice() {
+        try {
+            List<Book> books = bookRepository.findAll();
+            Map<String, Integer> genreCount = new LinkedHashMap<>();
+            if (!books.isEmpty()) {
+                for (int i = 0; i < books.size(); i++) {
+                    Book book = books.get(i);
+                    if (genreCount.containsKey(book.getGenre().getName())) {
+                        genreCount.put(book.getGenre().getName(),
+                                genreCount.get(book.getGenre().getName()) + book.getAvailableQuantity());
+                    } else {
+                        genreCount.put(book.getGenre().getName(), book.getAvailableQuantity());
+                    }
+                }
+                return new ResponseEntity<>(genreCount, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

@@ -21,15 +21,15 @@ public class LogoutServiceImplementation implements LogoutService {
 
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
-        
+
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
-        if(authHeader == null || !authHeader.startsWith("Bearer ")) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             return;
         }
         jwt = authHeader.substring(7);
         Optional<Token> storedToken = tokenRepository.findByToken(jwt);
-        if(storedToken.isPresent()) {
+        if (storedToken.isPresent()) {
             Token token = storedToken.get();
             token.setExpired(true);
             token.setRevoked(true);
@@ -37,5 +37,5 @@ public class LogoutServiceImplementation implements LogoutService {
         }
 
     }
-    
+
 }

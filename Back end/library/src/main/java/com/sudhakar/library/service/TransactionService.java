@@ -6,10 +6,9 @@ import org.springframework.http.ResponseEntity;
 
 import com.sudhakar.library.entity.Transaction;
 import com.sudhakar.library.entity.TransactionStatus;
-import com.sudhakar.library.entity.User;
 
 public interface TransactionService {
-    
+
     ResponseEntity<List<Transaction>> getAllTransactions();
 
     ResponseEntity<List<Transaction>> getTransactionsByUsernameOrEmail(String usernameOrEmail);
@@ -20,7 +19,7 @@ public interface TransactionService {
 
     ResponseEntity<List<Transaction>> getTransactionsByStatus(TransactionStatus status);
 
-    ResponseEntity<List<Transaction>> getTransactionByUsernameOrEmailWithStatus(String usernameOrEmail, TransactionStatus status);
+    ResponseEntity<List<Transaction>> getTransactionByUsernameOrEmailWithStatus(String usernameOrEmail,
+            TransactionStatus status);
 
 }
-

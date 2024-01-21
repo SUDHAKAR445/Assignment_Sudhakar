@@ -60,4 +60,3 @@ public class Transaction {
     private String notes;
 
 }
-

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sudhakar.library.entity.Genre;
 
-public interface GenreRepository extends JpaRepository<Genre, Long>{
+public interface GenreRepository extends JpaRepository<Genre, Long> {
 
     boolean existsByName(String name);
 

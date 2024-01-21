@@ -22,13 +22,13 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
-        @RequestBody RegisterRequest request){
-            return service.register(request);
+            @RequestBody RegisterRequest request) {
+        return service.register(request);
     }
 
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> authenticate(
-        @RequestBody AuthenticationRequest request){
-            return service.authenticate(request);
+            @RequestBody AuthenticationRequest request) {
+        return service.authenticate(request);
     }
 }

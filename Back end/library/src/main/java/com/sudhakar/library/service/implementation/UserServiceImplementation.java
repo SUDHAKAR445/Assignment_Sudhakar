@@ -14,7 +14,6 @@ import com.sudhakar.library.authentication.model.Token;
 import com.sudhakar.library.authentication.repository.TokenRepository;
 import com.sudhakar.library.entity.Role;
 import com.sudhakar.library.entity.Transaction;
-import com.sudhakar.library.entity.TransactionStatus;
 import com.sudhakar.library.entity.User;
 import com.sudhakar.library.repository.TransactionRepository;
 import com.sudhakar.library.repository.UserRepository;

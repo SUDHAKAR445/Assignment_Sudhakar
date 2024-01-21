@@ -1,10 +1,18 @@
 package com.sudhakar.library.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.sudhakar.library.entity.Book;
 import com.sudhakar.library.service.BookService;
@@ -58,7 +66,8 @@ public class BookController {
     }
 
     @GetMapping("/by-publisher/{publisherIdOrPublisherName}")
-    public ResponseEntity<List<Book>> getBooksByPublisherIdOrPublisherName(@PathVariable String publisherIdOrPublisherName) {
+    public ResponseEntity<List<Book>> getBooksByPublisherIdOrPublisherName(
+            @PathVariable String publisherIdOrPublisherName) {
         return bookService.getAllBooksByPublisherIdOrPublisherName(publisherIdOrPublisherName);
     }
 
@@ -87,5 +96,20 @@ public class BookController {
             @PathVariable int endYear,
             @PathVariable String genre) {
         return bookService.getAllBooksByPublicationYearAndGenre(startYear, endYear, genre);
+    }
+
+    @GetMapping("/totalBookCount")
+    public ResponseEntity<String> calculateTotalBookCount() {
+        return bookService.calculateTotalBookCount();
+    }
+
+    @GetMapping("/totalBookInGenre")
+    public ResponseEntity<String> calculateTotalBookInGenre(String genre) {
+        return bookService.calculateTotalBookInGenre(genre);
+    }
+
+    @GetMapping("/totalBookInGenreVice")
+    public ResponseEntity<Map<String, Integer>> calculateTotalBookInGenreVice() {
+        return bookService.calculateTotalBookInGenreVice();
     }
 }

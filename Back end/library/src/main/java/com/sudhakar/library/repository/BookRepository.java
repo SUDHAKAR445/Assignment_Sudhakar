@@ -16,41 +16,41 @@ import com.sudhakar.library.entity.Publisher;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    @Query("SELECT b FROM Book b WHERE b.publicationYear BETWEEN :startYear AND :endYear AND b.genre.name = :genreName")
-    List<Book> findBooksByPublicationYearAndGenre(
-            @Param("startYear") int startYear,
-            @Param("endYear") int endYear,
-            @Param("genreName") String genreName);
+        @Query("SELECT b FROM Book b WHERE b.publicationYear BETWEEN :startYear AND :endYear AND b.genre.name = :genreName")
+        List<Book> findBooksByPublicationYearAndGenre(
+                        @Param("startYear") int startYear,
+                        @Param("endYear") int endYear,
+                        @Param("genreName") String genreName);
 
-    @Query("SELECT b FROM Book b WHERE b.publicationYear BETWEEN :startYear AND :endYear")
-    List<Book> findBooksByPublicationYear(
-            @Param("startYear") int startYear,
-            @Param("endYear") int endYear);
+        @Query("SELECT b FROM Book b WHERE b.publicationYear BETWEEN :startYear AND :endYear")
+        List<Book> findBooksByPublicationYear(
+                        @Param("startYear") int startYear,
+                        @Param("endYear") int endYear);
 
-    @Query("SELECT b FROM Book b WHERE b.publicationYear = :year AND b.genre.name = :genreName")
-    List<Book> findBooksByPublicationYearWithGenre(
-            @Param("year") int year,
-            @Param("genreName") String genreName);
+        @Query("SELECT b FROM Book b WHERE b.publicationYear = :year AND b.genre.name = :genreName")
+        List<Book> findBooksByPublicationYearWithGenre(
+                        @Param("year") int year,
+                        @Param("genreName") String genreName);
 
-    List<Book> findByPublicationYear(int year);
+        List<Book> findByPublicationYear(int year);
 
-    boolean existsByBookIdOrIsbn(String bookId, String isbn);
+        boolean existsByBookIdOrIsbn(String bookId, String isbn);
 
-    List<Book> findByGenre(Genre genre);
+        List<Book> findByGenre(Genre genre);
 
-    List<Book> findByTitle(String title);
+        List<Book> findByTitle(String title);
 
-    List<Book> findByAuthorAuthorIdOrAuthorAuthorName(String authorId, String authorName);
+        List<Book> findByAuthorAuthorIdOrAuthorAuthorName(String authorId, String authorName);
 
-    Optional<Book> findByBookIdOrIsbn(String bookId, String isbn);
+        Optional<Book> findByBookIdOrIsbn(String bookId, String isbn);
 
-    List<Book> findByPublisherPublisherIdOrPublisherPublisherName(String publisherId, String publisherName);
+        List<Book> findByPublisherPublisherIdOrPublisherPublisherName(String publisherId, String publisherName);
 
-    List<Book> findByAuthor(Author existingAuthor);
+        List<Book> findByAuthor(Author existingAuthor);
 
-    Optional<Book> findByBookId(String bookId);
+        Optional<Book> findByBookId(String bookId);
 
-    List<Book> findByPublisher(Publisher existingPublisher);
+        List<Book> findByPublisher(Publisher existingPublisher);
 
-    List<Book> findByGenreName(String genre);
+        List<Book> findByGenreName(String genre);
 }
