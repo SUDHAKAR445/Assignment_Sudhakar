@@ -108,13 +108,15 @@ public class TransactionServiceImplementation implements TransactionService {
 
                 if (borrowed.isPresent()) {
                     Transaction borrowedTransaction = borrowed.get();
-                    borrowedTransaction.setReturnDate(new Date(System.currentTimeMillis()- 1000 * 60 * 24 * 24));
+                    borrowedTransaction.setReturnDate(new Date(System.currentTimeMillis()));
                     borrowedTransaction.setTransactionStatus(TransactionStatus.RETURN);
 
                     // Calculate the fine amount
                     long duration = Duration
                             .between(borrowedTransaction.getBorrowDate().toInstant(), new Date().toInstant()).toDays();
-                    int fineDays = 15;
+
+                    System.out.println(duration);
+                    int fineDays = 1;
 
                     if (fineDays < duration) {
                         long daysDifference = duration - fineDays;

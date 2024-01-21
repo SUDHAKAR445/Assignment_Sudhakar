@@ -25,4 +25,12 @@ public interface BookService {
     ResponseEntity<List<Book>> getAllBooksByPublisherIdOrPublisherName(String publisherIdOrPublisherName);
 
     ResponseEntity<List<Book>> getAllBooksByAuthorIdOrAuthorName(String authorIdOrAuthorName);
+
+    ResponseEntity<List<Book>> getAllBooksByPublicationYear(int year);
+
+    ResponseEntity<List<Book>> getAllBooksByPublicationYearWithGenre(int year, String genre);
+
+    ResponseEntity<List<Book>> getAllBooksByPublicationYear(int startYear, int endYear);
+
+    ResponseEntity<List<Book>> getAllBooksByPublicationYearAndGenre(int startYear, int endYear, String genre);
 }

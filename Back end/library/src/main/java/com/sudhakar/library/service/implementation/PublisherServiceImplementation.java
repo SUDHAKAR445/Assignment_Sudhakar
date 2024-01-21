@@ -83,11 +83,12 @@ public ResponseEntity<Publisher> createPublisher(Publisher publisher) {
         try {
             Optional<Publisher> optionalPublisher = publisherRepository.findByPublisherId(publisherId);
             if (optionalPublisher.isPresent()) {
-                publisherRepository.delete(optionalPublisher.get());
                 List<Book> books = bookRepository.findByPublisher(optionalPublisher.get());
                 for (Book book : books) {
                     bookRepository.delete(book);
                 }
+                publisherRepository.delete(optionalPublisher.get());
+                
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -96,4 +97,19 @@ public ResponseEntity<Publisher> createPublisher(Publisher publisher) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @Override
+public ResponseEntity<Publisher> getPublisherById(String publisherId) {
+    try {
+        Optional<Publisher> optionalPublisher = publisherRepository.findByPublisherId(publisherId);
+        if (optionalPublisher.isPresent()) {
+            return new ResponseEntity<>(optionalPublisher.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    } catch (Exception e) {
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
+
 }

@@ -21,6 +21,11 @@ public class AuthorController {
         return authorService.getAllAuthors();
     }
 
+    @GetMapping("/get/{authorId}")
+    public ResponseEntity<Author> getAuthorById(@PathVariable String authorId) {
+        return authorService.getAuthorById(authorId);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<Author> createAuthor(@RequestBody Author author) {
         return authorService.createAuthor(author);

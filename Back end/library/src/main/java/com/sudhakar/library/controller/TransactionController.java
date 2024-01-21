@@ -32,7 +32,7 @@ public class TransactionController {
         return transactionService.createTransaction(transaction);
     }
 
-    @PostMapping("/return/{usernameOrEmail}/{bookId}")
+    @PutMapping("/return/{usernameOrEmail}/{bookId}")
     public ResponseEntity<Transaction> returnBook(@PathVariable String usernameOrEmail, @PathVariable String bookId) {
         return transactionService.returnBook(usernameOrEmail, bookId);
     }

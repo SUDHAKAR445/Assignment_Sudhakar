@@ -37,8 +37,9 @@ public class Book {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "genre")
-    private String genre;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "name", nullable = false)
+    private Genre genre;
 
     @Column(name = "isbn", unique = true, nullable = false)
     private String isbn;

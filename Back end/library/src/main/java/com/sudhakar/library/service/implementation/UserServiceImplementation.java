@@ -10,9 +10,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.sudhakar.library.authentication.model.Token;
+import com.sudhakar.library.authentication.repository.TokenRepository;
 import com.sudhakar.library.entity.Role;
+import com.sudhakar.library.entity.Transaction;
+import com.sudhakar.library.entity.TransactionStatus;
 import com.sudhakar.library.entity.User;
+import com.sudhakar.library.repository.TransactionRepository;
 import com.sudhakar.library.repository.UserRepository;
+import com.sudhakar.library.service.TransactionService;
 import com.sudhakar.library.service.UserService;
 
 @Service
@@ -22,7 +28,16 @@ public class UserServiceImplementation implements UserService {
     UserRepository userRepository;
 
     @Autowired
+    TransactionRepository transactionRepository;
+
+    @Autowired
     PasswordEncoder passwordEncoder;
+
+    @Autowired
+    TransactionService transactionService;
+
+    @Autowired
+    TokenRepository tokenRepository;
 
     public ResponseEntity<List<User>> getAllUsers() {
         try {
@@ -59,7 +74,8 @@ public class UserServiceImplementation implements UserService {
                 existingMember.setUsername(
                         updateUser.getUsername() != null ? updateUser.getUsername() : existingMember.getUsername());
                 existingMember.setPassword(
-                        updateUser.getPassword() != null ? passwordEncoder.encode(updateUser.getPassword()) : existingMember.getPassword());
+                        updateUser.getPassword() != null ? passwordEncoder.encode(updateUser.getPassword())
+                                : existingMember.getPassword());
                 existingMember.setRole(existingMember.getRole());
 
                 User savedMember = userRepository.save(existingMember);
@@ -72,12 +88,29 @@ public class UserServiceImplementation implements UserService {
         }
     }
 
-    @Override
     public ResponseEntity<Void> deleteUserByUsernameOrEmail(String usernameOrEmail) {
         try {
             Optional<User> optionalUser = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail);
+
             if (optionalUser.isPresent()) {
-                userRepository.delete(optionalUser.get());
+                User user = optionalUser.get();
+
+                List<Transaction> activeTransactions = transactionRepository
+                        .findActiveBorrowTransactions(user.getUsername(), user.getEmail());
+
+                if (!activeTransactions.isEmpty()) {
+                    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                }
+
+                List<Transaction> transactions = transactionRepository.findByUserUsernameOrUserEmail(user.getUsername(),
+                        user.getEmail());
+                if (!transactions.isEmpty())
+                    transactions.forEach((transaction) -> transactionRepository.delete(transaction));
+
+                List<Token> tokens = tokenRepository.findByUserUsername(user.getUsername());
+                tokens.forEach((token) -> tokenRepository.delete(token));
+
+                userRepository.delete(user);
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

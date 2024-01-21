@@ -90,13 +90,29 @@ public class AuthorServiceImplementation implements AuthorService {
         try {
             Optional<Author> optionalAuthor = authorRepository.findByAuthorId(authorId);
             if (optionalAuthor.isPresent()) {
-                authorRepository.delete(optionalAuthor.get());
-                
+                Author author = optionalAuthor.get();
                 List<Book> books = bookRepository.findByAuthor(optionalAuthor.get());
                 for (Book book : books) {
                     bookRepository.delete(book);
                 }
+
+                authorRepository.delete(author);
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    public ResponseEntity<Author> getAuthorById(String authorId) {
+        try {
+            Optional<Author> optionalAuthor = authorRepository.findByAuthorId(authorId);
+            if (optionalAuthor.isPresent()) {
+                Author author = optionalAuthor.get();
+                return new ResponseEntity<>(author,HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }

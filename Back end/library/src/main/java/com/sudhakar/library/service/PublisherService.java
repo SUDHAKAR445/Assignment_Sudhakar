@@ -15,4 +15,6 @@ public interface PublisherService {
     ResponseEntity<Publisher> updatePublisherByPublisherId(String publisherId, Publisher updatedPublisher);
 
     ResponseEntity<Void> deletePublisherByPublisherId(String publisherId);
+
+    ResponseEntity<Publisher> getPublisherById(String publisherId);
 }

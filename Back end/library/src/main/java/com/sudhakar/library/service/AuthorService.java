@@ -15,5 +15,7 @@ public interface AuthorService {
     ResponseEntity<Author> updateAuthorByAuthorId(String authorId, Author updatedAuthor);
 
     ResponseEntity<Void> deleteAuthorByAuthorId(String authorId);
+
+    ResponseEntity<Author> getAuthorById(String authorId);
 }
 

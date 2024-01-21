@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.sudhakar.library.entity.Transaction;
 import com.sudhakar.library.entity.TransactionStatus;
+import com.sudhakar.library.entity.User;
 
 public interface TransactionService {
     

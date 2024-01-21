@@ -21,6 +21,11 @@ public class PublisherController {
         return publisherService.getAllPublishers();
     }
 
+    @GetMapping("/get/{publisherId}")
+    public ResponseEntity<Publisher> getPublisherById(@PathVariable String publisherId) {
+        return publisherService.getPublisherById(publisherId);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<Publisher> createPublisher(@RequestBody Publisher publisher) {
         return publisherService.createPublisher(publisher);

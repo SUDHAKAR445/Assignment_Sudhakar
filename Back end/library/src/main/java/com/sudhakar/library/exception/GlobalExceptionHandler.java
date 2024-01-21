@@ -32,4 +32,10 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleDuplicatePublisherException(DuplicatePublisherException message) {
         return new ResponseEntity<>(message.getMessage(), HttpStatus.CONFLICT);
     }
+
+    @ExceptionHandler(DuplicateGenreException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ResponseEntity<String> handleDuplicateGenreException(DuplicateGenreException message) {
+        return new ResponseEntity<>(message.getMessage(), HttpStatus.CONFLICT);
+    }
 }

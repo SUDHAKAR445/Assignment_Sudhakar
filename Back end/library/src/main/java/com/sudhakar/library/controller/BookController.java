@@ -26,7 +26,7 @@ public class BookController {
         return bookService.getBookByBookIdOrIsbn(bookIdOrIsbn);
     }
 
-    @PostMapping("/save")
+    @PostMapping("/create")
     public ResponseEntity<Book> saveBook(@RequestBody Book book) {
         return bookService.saveBook(book);
     }
@@ -60,5 +60,32 @@ public class BookController {
     @GetMapping("/by-publisher/{publisherIdOrPublisherName}")
     public ResponseEntity<List<Book>> getBooksByPublisherIdOrPublisherName(@PathVariable String publisherIdOrPublisherName) {
         return bookService.getAllBooksByPublisherIdOrPublisherName(publisherIdOrPublisherName);
+    }
+
+    @GetMapping("/byPublicationYear/{year}")
+    public ResponseEntity<List<Book>> getAllBooksByPublicationYear(@PathVariable int year) {
+        return bookService.getAllBooksByPublicationYear(year);
+    }
+
+    @GetMapping("/byPublicationYearWithGenre/{year}/{genre}")
+    public ResponseEntity<List<Book>> getAllBooksByPublicationYearWithGenre(
+            @PathVariable int year,
+            @PathVariable String genre) {
+        return bookService.getAllBooksByPublicationYearWithGenre(year, genre);
+    }
+
+    @GetMapping("/byPublicationYearRange/{startYear}/{endYear}")
+    public ResponseEntity<List<Book>> getAllBooksByPublicationYearRange(
+            @PathVariable int startYear,
+            @PathVariable int endYear) {
+        return bookService.getAllBooksByPublicationYear(startYear, endYear);
+    }
+
+    @GetMapping("/byPublicationYearAndGenre/{startYear}/{endYear}/{genre}")
+    public ResponseEntity<List<Book>> getAllBooksByPublicationYearAndGenre(
+            @PathVariable int startYear,
+            @PathVariable int endYear,
+            @PathVariable String genre) {
+        return bookService.getAllBooksByPublicationYearAndGenre(startYear, endYear, genre);
     }
 }
